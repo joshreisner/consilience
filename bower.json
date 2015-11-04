@@ -1,0 +1,21 @@
+{
+  "name": "consilience",
+  "homepage": "https://github.com/joshreisner/consilience",
+  "authors": [
+    "Josh Reisner <josh@joshreisner.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.5"
+  }
+}
