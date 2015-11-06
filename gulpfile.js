@@ -10,8 +10,12 @@ gulp.task('bower', function() {
 	return bower().pipe(gulp.dest('./bower_components'))
 });
 
-gulp.task('icons', function() {
-	return gulp.src('./bower_components/font-awesome/fonts/**.*').pipe(gulp.dest('./public/fonts'));
+gulp.task('fonts-fa', function() {
+	return gulp.src('./bower_components/font-awesome/fonts/**.*').pipe(gulp.dest('./assets/fonts'));
+});
+
+gulp.task('fonts-bootstrap', function() {
+	return gulp.src('./bower_components/bootstrap-sass/assets/fonts/bootstrap/**.*').pipe(gulp.dest('./assets/fonts'));
 });
 
 gulp.task('css', function() {
@@ -32,10 +36,10 @@ gulp.task('css', function() {
 gulp.task('js', function(){
 	return gulp.src([
 			'./bower_components/jquery/dist/jquery.min.js', 
-			'./bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
+			'./bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
 			'./assets/script.js'
 		])
-		.pipe(concat('script.min.js'))
+		.pipe(concat('script.js'))
 		.pipe(gulp.dest('./assets/js'))
 		.pipe(uglify());
 });
@@ -53,4 +57,4 @@ gulp.task('watch', function() {
 	gulp.watch('../**/*.php', livereloadPage);
 });
 
-gulp.task('default', ['bower', 'icons', 'css', 'js', 'watch']);
+gulp.task('default', ['bower', 'fonts-fa', 'fonts-bootstrap', 'css', 'js', 'watch']);

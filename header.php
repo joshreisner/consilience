@@ -5,6 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title><?php echo get_bloginfo('name')?></title>
+		<script src="https://use.typekit.net/bwk8cwd.js"></script>
+		<script>try{Typekit.load({ async: false });}catch(e){}</script>
         <meta name="description" content="<?php bloginfo('description'); ?>">
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.png">
 		<?php wp_head()?>
@@ -13,37 +15,35 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<body>
+	<body <?php body_class()?>>
 		<div class="container">
 			<div class="row banner">
 				<div class="col-xs-12">
-					<a href="/"><img src="<?php echo get_template_directory_uri()?>/assets/img/logo.png" width="401" height="66"></a>
+					<a href="/"><img src="<?php echo get_template_directory_uri()?>/assets/img/logo.png" width="401" height="66" class="img-responsive"></a>
 				</div>
 			</div>
 			<div class="row navigation">
 				<div class="col-xs-12">
-					<nav class="navbar navbar-default" role="navigation">
-						<div class="container">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-							</div>
-							<?php wp_nav_menu(array(
-								'menu'              => 'navbar',
-								'theme_location'    => 'primary',
-								'depth'             => 2,
-								'container'         => 'div',
-								'container_class'   => 'collapse navbar-collapse',
-								'container_id'      => 'bs-example-navbar-collapse-1',
-								'menu_class'        => 'nav navbar-nav',
-								'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-								'walker'            => new wp_bootstrap_navwalker(),
-							))?>
+					<nav class="navbar" role="navigation">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
 						</div>
+						<?php wp_nav_menu(array(
+							'menu'              => 'navbar',
+							'theme_location'    => 'primary',
+							'depth'             => 2,
+							'container'         => 'div',
+							'container_class'   => 'collapse navbar-collapse',
+							'container_id'      => 'bs-example-navbar-collapse-1',
+							'menu_class'        => 'nav navbar-nav',
+							'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+							'walker'            => new wp_bootstrap_navwalker(),
+						))?>
 					</nav>
 				</div>
 			</div>

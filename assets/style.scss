@@ -1,8 +1,105 @@
+$red: #e0000c;
+$icon-font-path: '/wp-content/themes/consilience/assets/fonts/';
+$gray: #ccc;
+
 @import "bootstrap";
 @import "font-awesome";
 
 body {
+	font-family: "adelle-sans";
+	
+	a { color: $red; }
+	
 	.row.banner {
 		margin: 15px 0;
 	}
+	
+	.row.footer {
+		border-top: 1px solid $gray;
+		margin-top: 100px;
+		padding-top: 20px;
+	}
+	
+	.navbar {
+		border-top: 1px solid $gray;
+		border-radius: 0;
+		a { 
+			color: inherit; 
+			padding-left: 15px;
+			padding-right: 15px;
+			margin-right: 10px;
+		}
+		ul.dropdown-menu a {
+			margin-right: 0; 
+		}
+	}
+	
+	
+	.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus, .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus { 
+		background-color: $red;
+	}
+	
+	&.page {
+		.page-header {
+			border-color: $gray;
+			margin-top: 0;
+			h1 { font-weight: 700; }
+		}
+		
+		.nav-stacked > li {
+			border-top: 1px solid $gray;
+			margin: 0;
+			a { color: inherit; }
+			&.active { background-color: #eee; }
+		}
+		
+		.content { font-size: 17px; }
+	}
+	
+	&.home {
+		.tagline {
+			border-top: 1px solid $gray;
+			border-bottom: 1px solid $gray;
+			padding: 30px 0;
+			margin-bottom: 20px;
+			text-align: center;
+			font-size: 20px; 
+			font-style: italic;
+		}
+		.mission {
+			text-align: center;
+			font-size: 20px; 
+			font-style: italic;
+			padding: 30px 0;
+			margin-bottom: 20px;
+			p:last-child { margin-bottom: 0; }
+		}
+		.row.sectors {
+			font-size: 20px; font-style: italic; 
+			a { 
+				border-top: 1px solid $gray;
+				color: inherit; padding: 20px; display: block;
+				strong { color: $red; }
+				&:hover { text-decoration: none; }
+			}
+		}
+		
+		.row.sectors div, .carousel {
+			margin-bottom: 20px;
+		}
+	}
 }
+
+@media (min-width: $screen-sm-min) {
+	
+}
+
+@media (min-width: $screen-md-min) {
+	.navbar { margin-bottom: 0; }
+	.navbar-collapse { padding-left: 0; }	
+}
+
+@media (min-width: $screen-lg-min) {
+	
+}
+
