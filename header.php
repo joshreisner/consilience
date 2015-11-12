@@ -5,8 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title><?php echo get_bloginfo('name')?></title>
-		<script src="https://use.typekit.net/bwk8cwd.js"></script>
-		<script>try{Typekit.load({ async: false });}catch(e){}</script>
         <meta name="description" content="<?php bloginfo('description'); ?>">
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.png">
 		<?php wp_head()?>
@@ -19,7 +17,7 @@
 		<div class="container">
 			<div class="row banner">
 				<div class="col-xs-12">
-					<a href="/"><img src="<?php echo get_template_directory_uri()?>/assets/img/logo.png" width="401" height="66" class="img-responsive"></a>
+					<a href="/" class="logo">Consilience Group</a>
 				</div>
 			</div>
 			<div class="row navigation">
@@ -39,7 +37,7 @@
 							'depth'             => 2,
 							'container'         => 'div',
 							'container_class'   => 'collapse navbar-collapse',
-							'container_id'      => 'bs-example-navbar-collapse-1',
+							'container_id'      => 'nav',
 							'menu_class'        => 'nav navbar-nav',
 							'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
 							'walker'            => new wp_bootstrap_navwalker(),

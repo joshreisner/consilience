@@ -1,42 +1,72 @@
-$red: #e0000c;
 $icon-font-path: '/wp-content/themes/consilience/assets/fonts/';
+
+$red: #df222c;
+$blue: #45b2c9;
 $gray: #ccc;
+$gray-light: #eee;
+
+$container-large-desktop: 970px;
+$margin: 20px;
 
 @import "bootstrap";
 @import "font-awesome";
 
 body {
-	font-family: "adelle-sans";
+	margin: $margin;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	
 	a { color: $red; }
 	
-	.row.banner {
-		margin: 15px 0;
+	p { margin: 0 0 $margin; }
+	
+	h1, h2, h3, h4, .h1, .h2, .h3, .h4 { font-family: "Tw Cen MT", "Gill Sans", "Century Gothic", sans-serif; }
+	
+	.row {
+		margin-bottom: $margin;
+		&.banner {
+			a.logo {
+				text-indent: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				width: 224px;
+				height: 60px;
+				background-image: url(../img/logo.png);
+				background-size: contain;
+				background-repeat: no-repeat;
+				max-width: 100%;
+				display: block;
+			}
+		}
+		&.footer {
+			border-top: 1px solid $gray;
+			padding-top: $margin;
+		}
 	}
 	
-	.row.footer {
-		border-top: 1px solid $gray;
-		margin-top: 100px;
-		padding-top: 20px;
-	}
 	
 	.navbar {
-		border-top: 1px solid $gray;
+		border: 0;
+		border-top: 3px solid $gray;
 		border-radius: 0;
+		background-color: $gray-light;
 		a { 
 			color: inherit; 
-			padding-left: 15px;
-			padding-right: 15px;
-			margin-right: 10px;
+			padding-left: $margin;
+			padding-right: $margin;
+			&:hover, &:focus { background-color: $gray; }
 		}
-		ul.dropdown-menu a {
-			margin-right: 0; 
+		li.current-menu-item > a, li.dropdown.open > a, li.current-menu-ancestor, li.active > a { 
+			background-color: $gray; 
+			&:hover, &:focus { background-color: $gray; }
 		}
-	}
-	
-	
-	.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus, .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus { 
-		background-color: $red;
+		ul.dropdown-menu {
+			background-color: $gray-light;
+			box-shadow: none;
+			border: 0;
+			border-right: 2px solid $gray;
+			border-bottom: 2px solid $gray;
+			a { margin-right: 0; }
+		}
 	}
 	
 	&.page {
@@ -50,42 +80,57 @@ body {
 			border-top: 1px solid $gray;
 			margin: 0;
 			a { color: inherit; }
-			&.active { background-color: #eee; }
+			&.active { background-color: $gray-light; }
 		}
 		
 		.content { font-size: 17px; }
 	}
 	
-	&.home {
+	&.home .content {
+		.carousel {
+			margin-bottom: $margin;
+			h1 {
+				font-size: 100px;
+			}
+		}
+		
 		.tagline {
-			border-top: 1px solid $gray;
-			border-bottom: 1px solid $gray;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			color: white;
+			font-size: 20px;
+			margin: 10px 50px;
 			padding: 30px 0;
-			margin-bottom: 20px;
-			text-align: center;
-			font-size: 20px; 
 			font-style: italic;
 		}
+		
 		.mission {
 			text-align: center;
 			font-size: 20px; 
-			font-style: italic;
-			padding: 30px 0;
-			margin-bottom: 20px;
+			padding: 0 40px;
 			p:last-child { margin-bottom: 0; }
 		}
-		.row.sectors {
-			font-size: 20px; font-style: italic; 
+		
+		.row.domain-topics {
+			font-size: 16px; font-style: italic; 
 			a { 
-				border-top: 1px solid $gray;
+				border-top: 3px solid $gray; text-align: center;
+				background-color: $gray-light; min-height: 130px;
 				color: inherit; padding: 20px; display: block;
 				strong { color: $red; }
 				&:hover { text-decoration: none; }
 			}
 		}
 		
-		.row.sectors div, .carousel {
-			margin-bottom: 20px;
+		.row.about {
+			.left {
+				font-size: 24px; 
+			}
+			.right {
+				font-size: 15px; 
+			}
 		}
 	}
 }
