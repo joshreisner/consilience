@@ -32,8 +32,9 @@
 			</div>
 		</div>
 	
-		<div class="tagline"><?php echo get_bloginfo('description')?></div>
+		<h2><?php echo get_bloginfo('description')?></h2>
 	
+		<!--
 		<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
 			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 			<span class="sr-only">Previous</span>
@@ -43,12 +44,15 @@
 			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
 		</a>
+		-->
 	</div>
 	
 	<div class="row mission">
-		<div class="col-md-10 col-md-offset-1">
-			<p>Social sector organizations commit to long-term missions that foster transformational change for people and communities.</p>
-			<p>We join them at strategic points on the journey with expertise and bandwidth to accelerate change, from high level strategy to on-the-ground implementation.</p>
+		<div class="col-md-12">
+			<h3>
+			<p>Social sector organizations commit to long-term journeys that impact lives.<br>
+			We join them at pivotal points to accelerate change, from strategy to action.</p>
+			</h3>
 		</div>
 	</div>
 	

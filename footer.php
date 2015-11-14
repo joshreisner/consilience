@@ -1,7 +1,10 @@
 			<div class="row footer">
+				<div class="col-md-12">
+					<hr>
+				</div>
 				<div class="col-md-6">					
-					Consilience Group®, LLC.<br>
-					© <?php echo date('Y')?>
+					Consilience Group&trade;, LLC<br>
+					&copy; <?php echo date('Y')?>
 				</div>
 				<div class="col-md-3">
 					580 Monteigne Blvd.<br>
