@@ -12,7 +12,7 @@ $margin: 20px;
 @import "font-awesome";
 
 body {
-	margin: $margin;
+	margin: $margin 0;
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	
 	a { color: $red; }
@@ -42,29 +42,45 @@ body {
 		}
 	}
 	
+	.row.footer {
+		div { 
+			margin-bottom: $margin; 
+			&:first-child { margin: 0; }
+		}
+	}
 	
 	.navbar {
 		border: 0;
-		border-top: 3px solid $gray;
+		border-top: 3px solid $blue;
 		border-radius: 0;
 		background-color: $gray-light;
+		margin: 0 -15px;
+		button.navbar-toggle {
+			border-color: $gray;
+			span { border-top: 1px solid $gray; }
+		}
 		a { 
 			color: inherit; 
 			padding-left: $margin;
 			padding-right: $margin;
-			&:hover, &:focus { background-color: $gray; }
+			&:hover, &:focus { 
+				background-color: $blue; 
+				color: white;
+			}
 		}
 		li.current-menu-item > a, li.dropdown.open > a, li.current-menu-ancestor, li.active > a { 
-			background-color: $gray; 
-			&:hover, &:focus { background-color: $gray; }
+			background-color: $blue; 
+			color: white;
+			&:hover, &:focus { background-color: $blue; }
 		}
-		ul.dropdown-menu {
-			background-color: $gray-light;
+		ul.dropdown-menu, li.open ul.dropdown-menu {
+			background-color: $blue;
 			box-shadow: none;
 			border: 0;
-			border-right: 2px solid $gray;
-			border-bottom: 2px solid $gray;
-			a { margin-right: 0; }
+			a {
+				margin-right: 0;
+				color: white;
+			}
 		}
 	}
 	
@@ -75,6 +91,7 @@ body {
 	}
 	
 	.nav-stacked > li {
+		font-size: 13px;
 		border-top: 1px solid $gray;
 		margin: 0;
 		a { color: inherit; }
@@ -92,6 +109,7 @@ body {
 	
 	&.home .content {
 		.carousel {
+			display: none; 
 			margin-bottom: $margin;
 			h2 {
 				position: absolute;
@@ -114,15 +132,15 @@ body {
 		}
 		
 		.row.mission {
-			h3 { margin: 10px 0; }
+			h3 { margin: 10px 0; font-size: 26px; }
 			p:last-child { margin-bottom: 0; }
 		}
 		
 		.row.domain-topics {
-			font-size: 17px; text-align: center;
+			font-size: 14px; text-align: center; margin-bottom: 0;
 			a { 
-				border-top: 3px solid $gray; background-color: $gray-light; min-height: 140px;
-				color: inherit; padding: 20px; display: block;
+				border-top: 3px solid $blue; background-color: $gray-light; 
+				color: inherit; padding: 20px; display: block; margin-bottom: $margin;
 				strong { color: $red; font-style: italic; }
 				&:hover { text-decoration: none; }
 			}
@@ -131,6 +149,10 @@ body {
 		.row.about {
 			.left {
 				font-size: 24px; 
+				background-image: url(../img/logo-tree.svg);
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center center;
 			}
 			.right {
 				font-size: 15px; 
@@ -140,6 +162,17 @@ body {
 }
 
 @media (min-width: $screen-sm-min) {
+
+	body {
+		margin: $margin 0;
+		.navbar { margin: 0; }
+		ul#menu-navbar { float: right; }
+		&.home .content .carousel { display: block; }
+		.mission p { margin-bottom: 0; }
+		.row.domain-topics a {
+			min-height: 100px;
+		}
+	}
 	
 }
 

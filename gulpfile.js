@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
-	sass = require('gulp-ruby-sass')
-	notify = require('gulp-notify')
-	bower = require('gulp-bower')
+	sass = require('gulp-ruby-sass'),
+	notify = require('gulp-notify'),
+	bower = require('gulp-bower'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	livereload = require('gulp-livereload');

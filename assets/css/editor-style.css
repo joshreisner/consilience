@@ -6,10 +6,12 @@ a {
 	color: #ea2626;
 }
 
-.lead {
+div.lead {
 	font-size: 21px;
 	color: #aaa;
 }
+
+p { margin: 0 0 20px 0; }
 
 h1, h2, h3, h4, .h1, .h2, .h3, .h4 { 
 	font-family: "Tw Cen MT", "Gill Sans", "Century Gothic", sans-serif; 

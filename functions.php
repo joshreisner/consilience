@@ -6,8 +6,12 @@ add_action('wp_enqueue_scripts', function(){
 	wp_enqueue_script('script-name', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), false, true);
 });
 
+# Gallery shortcode
+add_filter('post_gallery', function($output){
+	return $output;
+}, 10, 2);
+
 # Custom style
-// Register our callback to the appropriate filter
 add_filter('mce_buttons_2', function($buttons) {
 	$buttons[0] = 'styleselect';
 	return $buttons;
@@ -21,7 +25,7 @@ add_filter('tiny_mce_before_init', function($array) {
 	$array['style_formats'] = json_encode(array(  
 		array(  
 			'title' => 'Lead',  
-			'block' => 'p',  
+			'block' => 'div',  
 			'wrapper' => true,
 			'classes' => 'lead',
 		),  
@@ -49,32 +53,12 @@ add_filter('tiny_mce_before_init', function($array) {
 	return $array;  
 });
 
-# Register menu and custom post type
+# Register menu walker
 require_once('wp_bootstrap_navwalker.php');
-add_action('init', function(){
-	register_nav_menu('navbar', 'Navbar');
-	register_post_type('case-studies',
-		array(
-			'labels'		=> array(
-				'name'			=>	'Case Studies',
-				'singular_name'	=>	'Case Study',
-				'not_found'		=>	'No case studies added yet.',
-				'add_new_item'	=>	'Add New Case Study',
-				'search_items'	=>	'Search Case Studies',
-				'edit_item'		=>	'Edit Case Study',
-				'view_item'		=>	'View Case Study',
-			),
-			'supports'		=> array('title', 'editor', 'revisions', 'thumbnail', 'excerpt'),
-			'public'		=> true,
-			'has_archive'	=> true,
-			'menu_icon'		=> 'dashicons-clipboard',
-		)
-	);
-	flush_rewrite_rules();
-});
 
+# Utility functions
 function dd($content) {
 	echo '<pre>';
-	echo print_r($content);
+	print_r($content);
 	exit;
 }

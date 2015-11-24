@@ -50,8 +50,8 @@
 	<div class="row mission">
 		<div class="col-md-12">
 			<h3>
-			<p>Social sector organizations commit to long-term journeys that impact lives.<br>
-			We join them at pivotal points to accelerate change, from strategy to action.</p>
+				<p>Social sector organizations commit to long-term journeys that help transform lives.</p>
+				<p>We join them at pivotal points to accelerate change, from strategy to action.</p>
 			</h3>
 		</div>
 	</div>
