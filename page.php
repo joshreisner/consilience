@@ -45,7 +45,24 @@ $attachments = new Attachments('attachments');
 				<?php the_content()?>
 			</div>
 			<div class="col-md-4 side">
-				Right side content goes here.
+				<div class="row" id="gallery-controls">
+				<?php if ($attachments->exist() && $attachments->total() > 1) {
+					$attachments->rewind();
+					?>
+					<?php while($index = $attachments->get()) {?>
+						<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>"><?php echo $attachments->image('thumbnail')?></div>
+					<?php }?>
+				<?php }?>
+				</div>
+				
+				<?php if ($related_pages = get_post_meta(get_the_ID(), 'related_posts', true)) {?>
+					<h3>Selected Related Projects</h3>
+					<?php 
+					$related_pages = get_pages(array('include'=>$related_pages));
+					foreach ($related_pages as $related_page) {?>
+						<a href="<?php echo get_permalink($related_page->id)?>"><?php echo $related_page->post_title?></a><br>
+					<?php }
+				}?>
 			</div>
 		</div>
 	</div>

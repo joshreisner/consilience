@@ -15,7 +15,10 @@ body {
 	margin: $margin 0;
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	
-	a { color: $red; }
+	a { 
+		color: $red; 
+		&:hover, &:focus { color: $blue; }
+	}
 	
 	p { margin: 0 0 $margin; }
 	
@@ -105,6 +108,11 @@ body {
 			font-size: 21px;
 			color: #aaa;
 		}
+	}
+	
+	#gallery-controls {
+		img { width: 100%; height: auto; margin-bottom: $margin; cursor: pointer; border-top: 3px solid transparent; }
+		.active img { border-color: $blue; }
 	}
 	
 	&.home .content {
