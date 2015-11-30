@@ -45,15 +45,16 @@ $attachments = new Attachments('attachments');
 				<?php the_content()?>
 			</div>
 			<div class="col-md-4 side">
-				<div class="row" id="gallery-controls">
 				<?php if ($attachments->exist() && $attachments->total() > 1) {
 					$attachments->rewind();
 					?>
+				<div class="row" id="gallery-controls">
 					<?php while($index = $attachments->get()) {?>
-						<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>"><?php echo $attachments->image('thumbnail')?></div>
+						<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>"><?php echo $attachments->image('small')?></div>
 					<?php }?>
-				<?php }?>
+					<div class="col-md-12"><hr></div>
 				</div>
+				<?php }?>
 				
 				<?php if ($related_pages = get_post_meta(get_the_ID(), 'related_posts', true)) {?>
 					<h3>Selected Related Projects</h3>

@@ -83,6 +83,7 @@ body {
 			a {
 				margin-right: 0;
 				color: white;
+				&:hover { text-decoration: underline; }
 			}
 		}
 	}
@@ -111,8 +112,9 @@ body {
 	}
 	
 	#gallery-controls {
-		img { width: 100%; height: auto; margin-bottom: $margin; cursor: pointer; border-top: 3px solid transparent; }
+		img { width: 100%; height: auto; margin-bottom: 15px; cursor: pointer; border-top: 3px solid transparent; }
 		.active img { border-color: $blue; }
+		hr { margin: 0 0 15px; }
 	}
 	
 	&.home .content {
@@ -186,7 +188,7 @@ body {
 
 @media (min-width: $screen-md-min) {
 	.navbar { margin-bottom: 0; }
-	.navbar-collapse { padding-left: 0; }	
+	.navbar-collapse { padding-right: 0; }	
 }
 
 @media (min-width: $screen-lg-min) {
