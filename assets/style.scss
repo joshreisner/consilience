@@ -123,8 +123,11 @@ body {
 	}
 	
 	#gallery-controls {
-		img { width: 100%; height: auto; margin-bottom: 15px; cursor: pointer; border-top: 3px solid transparent; }
-		.active img { border-color: $blue; }
+		.thumbnail { 
+			height: 70px; margin-bottom: 15px; cursor: pointer; border: 0; border-top: 3px solid transparent; 
+			background-size: cover; background-position: center center; border-radius: 0; 
+			&.active { border-color: $blue; }
+		}
 		hr { margin: 0 0 15px; }
 	}
 	
@@ -170,23 +173,62 @@ body {
 		.row.about {
 			font-size: 15px; 
 			.spotlight {
-				font-size: 24px; 
+				font-size: 22px; 
 				min-height: 270px;
 				background-image: url(../img/logo-tree.svg);
 				background-repeat: no-repeat;
 				background-size: contain;
 				background-position: center center;
+				ul {
+					list-style-type: none;
+					padding-left: 58px;
+					li {
+						position: relative;
+						line-height: 1.2;
+						time {
+							font-size: 18px;
+							position: absolute;
+							left: -58px;
+							top: 4px;
+							color: #aaa;
+						}
+					}
+				}
 			}
 		}
 	}
 	
-	&.post-type-archive-projects {
+	&.post-type-archive-project {
 		.row.projects {
-			a {
-				color: inherit; text-align: center;
-				& > div {
-					height: 200px; background-size: contain; background-repeat: no-repeat;
-					background-position: center center;
+			.filter {
+				ul {
+					padding: 0;
+					list-style-type: none;
+					li {
+						cursor: pointer;
+						padding: 10px; 
+						border-bottom: 1px solid #ccc;
+						text-indent: 0;
+						&.active {
+							background-color: #eee;
+						}
+					}
+				}
+			}
+			.main {
+				a {
+					color: inherit;
+					margin-bottom: 40px;
+					font-size: 15px;
+					& > div {
+						height: 200px; background-size: contain; background-repeat: no-repeat;
+						background-position: center center;
+						background-color: #eee;
+						margin-bottom: 4px;
+					}
+					&:hover {
+						text-decoration: none;
+					}
 				}
 			}
 		}

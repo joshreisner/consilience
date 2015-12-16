@@ -71,6 +71,16 @@
 	<div class="row about">
 		<div class="col-md-6 spotlight">
 			<p>Spotlight</p>
+			<ul>
+				<li>
+					<time>11/28</time>
+					<p>Read our new <a href="#report">report on Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+				</li>
+				<li>
+					<time>11/16</time>
+					<p>An older <a href="#report">spotlight post</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+				</li>
+			</ul>
 		</div>
 		<div class="col-md-6">
 			<p><strong>We</strong> provide human-centered strategy, planning and design services to help our clients build transformative people-centered solutions and effective collective impact.</p>

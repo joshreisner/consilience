@@ -15,7 +15,7 @@ add_filter('mce_buttons_2', function($buttons) {
 # Init: register main nav menu
 add_action('init', function(){
 	register_nav_menu('navbar', 'Navbar');
-	register_post_type('projects',
+	register_post_type('project',
 		array(
 			'labels' => array(
 				'name'					=> __('Projects'),
@@ -39,6 +39,7 @@ add_action('init', function(){
 			'menu_position' => 20,
 			'menu_icon' => 'dashicons-book',
 			'hierarchical' => true,
+			'rewrite' => array('slug'=>'projects'),
 		)
 	);	
 });
@@ -47,12 +48,12 @@ add_action('init', function(){
 add_filter('attachments_default_instance', '__return_false');
 add_action('attachments_register', function($attachments){
 	$attachments->register('attachments', array(
-		'label'			=> 'Project Images',
-		'post_type'		=> array('projects', 'page'),
-		'position'		=> 'side',    //normal, side or advanced
+		'label'			=> 'Images',
+		'post_type'		=> array('project', 'page'),
+		//'position'	=> 'side',    //normal, side or advanced
 		'priority'		=> 'default', //high, default, low, core
 		'filetype'		=> null,      //image|video|text|audio|application
-		//'note'			=> 'Attach files here!',
+		//'note'		=> 'Attach files here!',
 		'append'		=> true,
 		'button_text'	=> __( 'Attach', 'attachments' ),
 		'modal_text'	=> __( 'Attach', 'attachments' ),
@@ -80,39 +81,6 @@ add_action('admin_bar_menu', function($wp_admin_bar) {
 add_action('admin_init', function(){
 	add_editor_style('/assets/css/editor-style.css');
 });
-
-# Add meta box for testimonial to project edit page
-$nonce_action = 'project_custom';
-$nonce_name = $nonce_action . '_nonce';
-add_action('add_meta_boxes', function() use ($nonce_action, $nonce_name) {
-	add_meta_box(
-		'project_testimonial',
-		'Custom Fields',
-		function($post) use ($nonce_action, $nonce_name) {
-			wp_nonce_field($nonce_action, $nonce_name);
-			$custom = get_post_custom($post->ID);
-			echo '<label for="question">Question</label><textarea name="question" style="width:100%;height:160px" placeholder="Design Question">' . $custom['question'][0] . '</textarea>';
-			echo '<label for="testimonial">Testimonial</label><textarea name="testimonial" style="width:100%;height:160px" placeholder="Testimonial">' . $custom['testimonial'][0] . '</textarea>';
-		},
-		'projects',
-		'side'
-	);
-});
-
-# Save testimonial
-add_action('save_post', function($post_id) use ($nonce_action, $nonce_name) {
-	if (!isset($_POST[$nonce_name])) return;
-	if (!wp_verify_nonce($_POST[$nonce_name], $nonce_action)) return;
-	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-	if (!current_user_can('edit_post', $post_id)) return;
-	if (!isset($_POST['testimonial']) && !isset($_POST['question'])) return;
-	$_POST['testimonial'] = implode("\n", array_map('sanitize_text_field', explode("\n", $_POST['testimonial'])));
-	$_POST['question'] = implode("\n", array_map('sanitize_text_field', explode("\n", $_POST['question'])));
-
-	update_post_meta($post_id, 'testimonial', $_POST['testimonial']);
-	update_post_meta($post_id, 'question', $_POST['question']);
-});
-
 
 add_filter('tiny_mce_before_init', function($array) {  
 	$array['style_formats'] = json_encode(array(  

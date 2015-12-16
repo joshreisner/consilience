@@ -50,13 +50,15 @@ $attachments = new Attachments('attachments');
 					?>
 				<div class="row" id="gallery-controls">
 					<?php while($index = $attachments->get()) {?>
-						<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>"><?php echo $attachments->image('small')?></div>
+						<div class="col-md-6">
+							<div class="thumbnail<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>" style="background-image:url(<?php echo $attachments->src('medium')?>)"></div>
+						</div>
 					<?php }?>
 					<div class="col-md-12"><hr></div>
 				</div>
 				<?php }?>
 				
-				<?php if ($related_pages = get_post_meta(get_the_ID(), 'related_posts', true)) {?>
+				<?php if ($related_projects = get_post_meta(get_the_ID(), 'related_posts', true)) {?>
 					<h3>Selected Related Projects</h3>
 					<?php 
 					$related_pages = get_pages(array('include'=>$related_pages));

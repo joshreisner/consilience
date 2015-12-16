@@ -42,12 +42,12 @@ $attachments = new Attachments('attachments', $post->ID);
 			?>
 		<div class="row" id="gallery-controls">
 			<?php while($index = $attachments->get()) {?>
-				<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>"><?php echo $attachments->image('small')?></div>
+				<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>"><?php echo $attachments->image('thumbnail')?></div>
 			<?php }?>
 			<div class="col-md-12"><hr></div>
 		</div>
 		<?php }
-			
+
 		$custom = get_post_custom($post->ID);
 		if (!empty($custom['testimonial'][0])) {
 			?>
@@ -57,11 +57,11 @@ $attachments = new Attachments('attachments', $post->ID);
 			</div>
 			<?php 
 		}	
-		if ($related_pages = get_post_meta(get_the_ID(), 'related_posts', true)) {?>
+		if (!empty($custom['related_posts'])) {?>
 			<h3>Selected Related Projects</h3>
 			<div class="block related">
 			<?php 
-			$related_pages = get_posts(array('post_type'=>'project', 'include'=>$related_pages));
+			$related_pages = get_posts(array('post_type'=>'project', 'include'=>unserialize($custom['related_posts'][0])));
 			foreach ($related_pages as $related_page) {?>
 				<a href="<?php echo get_permalink($related_page->id)?>"><?php echo $related_page->post_title?></a><br>
 			<?php }?>
