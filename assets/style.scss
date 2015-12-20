@@ -2,8 +2,11 @@ $icon-font-path: '/wp-content/themes/consilience/assets/fonts/';
 
 $red: #ea2626; //df222c;
 $blue: #45b2c9;
-$gray: #ccc;
-$gray-light: #eee;
+$gray-lightish: #ccc;
+
+$brand-primary: $blue;
+$state-danger-text: $red;
+//$brand-danger: $red;
 
 $container-large-desktop: 970px;
 $margin: 20px;
@@ -56,11 +59,11 @@ body {
 		border: 0;
 		border-top: 3px solid $blue;
 		border-radius: 0;
-		background-color: $gray-light;
+		background-color: $gray-lighter;
 		margin: 0 -15px;
 		button.navbar-toggle {
-			border-color: $gray;
-			span { border-top: 1px solid $gray; }
+			border-color: $gray-lightish;
+			span { border-top: 1px solid $gray-lightish; }
 		}
 		a { 
 			color: inherit; 
@@ -89,18 +92,18 @@ body {
 	}
 	
 	.page-header {
-		border-color: $gray;
+		border-color: $gray-lightish;
 		margin: 0;
 		h1 { font-weight: 700; }
 	}
 	
 	.nav-stacked > li {
 		font-size: 13px;
-		border-top: 1px solid $gray;
+		border-top: 1px solid $gray-lightish;
 		margin: 0;
 		a { color: inherit; }
 		&:first-child { font-weight: bold; border-top: 0; }
-		&.current_page_item { background-color: $gray-light; }
+		&.current_page_item { background-color: $gray-lighter; }
 	}
 	
 	.content {
@@ -114,9 +117,11 @@ body {
 	#gallery {
 		height: 300px; background-color: #f3f3f3; 
 		.item {
+			height: 300px;
+			overflow: hidden;
 			img {
 				margin: 0 auto; 
-				max-height: 300px;
+				height: 300px;
 				width: auto;
 			}
 		}
@@ -126,8 +131,8 @@ body {
 		.thumbnail { 
 			height: 70px; margin-bottom: 15px; cursor: pointer; border: 0; border-top: 3px solid transparent; 
 			background-size: cover; background-position: center center; border-radius: 0; 
-			&.active { border-color: $blue; }
 		}
+		& > div.active .thumbnail { border-color: $blue; }
 		hr { margin: 0 0 15px; }
 	}
 	
@@ -163,7 +168,7 @@ body {
 		.row.domain-topics {
 			font-size: 14px; text-align: center; margin-bottom: 0;
 			a { 
-				border-top: 3px solid $blue; background-color: $gray-light; 
+				border-top: 3px solid $blue; background-color: $gray-lighter; 
 				color: inherit; padding: 20px; display: block; margin-bottom: $margin;
 				strong { color: $red; font-style: italic; }
 				&:hover { text-decoration: none; }
@@ -196,6 +201,15 @@ body {
 				}
 			}
 		}
+	}
+	
+	&.page {
+		form#contact {
+			input, textarea, .btn {
+				border-radius: 0;
+			}
+			textarea { height: 200px; }
+		}		
 	}
 	
 	&.post-type-archive-project {

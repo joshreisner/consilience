@@ -114,6 +114,50 @@ add_filter('tiny_mce_before_init', function($array) {
 	return $array;  
 });
 
+# Contact
+add_action('wp_ajax_contact', 'deliver_mail');
+add_action('wp_ajax_nopriv_contact', 'deliver_mail');
+function deliver_mail() {
+
+	if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
+
+		// sanitize form values
+		$name		= sanitize_text_field($_POST['name']);
+		$email		= sanitize_email($_POST['email']);
+		$message	= nl2br(stripslashes($_POST['message']));
+		$to			= get_option('admin_email');
+		$headers	= 'From: ' . $name . ' <' . $email . '>' . "\r\n";
+
+		if (wp_mail($to, 'Contact Form', $message, $headers)) {
+			echo '<div class="alert alert-warning">Thanks for contacting us, you can expect a response soon.</div>';
+		} else {
+			echo '<div class="alert alert-danger">An unexpected error occurred!</div>';
+		}
+		
+	} else {
+		echo '<div class="alert alert-danger">An unexpected input error occurred!</div>';
+	}
+
+	exit;
+}
+
+add_shortcode('contact_form', function(){
+	return '
+		<form method="post" id="contact">
+			<input name="action" type="hidden" value="contact">
+			<div class="row">
+				<div class="col-md-6"><input class="form-control required" name="name" pattern="[a-zA-Z0-9 ]+" type="text" placeholder="Name"></div>
+				<div class="col-md-6"><input class="form-control email required" name="email" type="email" placeholder="Email"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12"><textarea class="form-control required" name="message" placeholder="Message"></textarea></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12"><input class="btn btn-primary form-control" type="submit" value="Send Message"></div>
+			</div>
+		</form>';
+});
+
 # Register menu walker
 require_once('wp_bootstrap_navwalker.php');
 

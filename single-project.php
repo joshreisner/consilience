@@ -37,16 +37,18 @@ $attachments = new Attachments('attachments', $post->ID);
 		<?php the_content()?>
 	</div>
 	<div class="col-md-5 side">
-		<?php if ($attachments->exist() && $attachments->total() > 1) {
-			$attachments->rewind();
-			?>
-		<div class="row" id="gallery-controls">
-			<?php while($index = $attachments->get()) {?>
-				<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>"><?php echo $attachments->image('thumbnail')?></div>
-			<?php }?>
-			<div class="col-md-12"><hr></div>
-		</div>
-		<?php }
+				<?php if ($attachments->exist() && $attachments->total() > 1) {
+					$attachments->rewind();
+					?>
+				<div class="row" id="gallery-controls">
+					<?php while($index = $attachments->get()) {?>
+						<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>">
+							<div class="thumbnail<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>" style="background-image:url(<?php echo $attachments->src('medium')?>)"></div>
+						</div>
+					<?php }?>
+					<!-- <div class="col-md-12"><hr></div> -->
+				</div>
+				<?php }
 
 		$custom = get_post_custom($post->ID);
 		if (!empty($custom['testimonial'][0])) {
@@ -61,9 +63,9 @@ $attachments = new Attachments('attachments', $post->ID);
 			<h3>Selected Related Projects</h3>
 			<div class="block related">
 			<?php 
-			$related_pages = get_posts(array('post_type'=>'project', 'include'=>unserialize($custom['related_posts'][0])));
-			foreach ($related_pages as $related_page) {?>
-				<a href="<?php echo get_permalink($related_page->id)?>"><?php echo $related_page->post_title?></a><br>
+			$related_projects = get_posts(array('post_type'=>'project', 'include'=>unserialize($custom['related_posts'][0]), 'numberposts' => -1, 'orderby' => 'post__in'));
+			foreach ($related_projects as $related_project) {?>
+				<a href="<?php echo get_permalink($related_project->id)?>"><?php echo $related_project->post_title?></a><br>
 			<?php }?>
 			</div>
 		<?php }?>

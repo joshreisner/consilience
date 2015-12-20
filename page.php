@@ -50,20 +50,20 @@ $attachments = new Attachments('attachments');
 					?>
 				<div class="row" id="gallery-controls">
 					<?php while($index = $attachments->get()) {?>
-						<div class="col-md-6">
+						<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>">
 							<div class="thumbnail<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>" style="background-image:url(<?php echo $attachments->src('medium')?>)"></div>
 						</div>
 					<?php }?>
-					<div class="col-md-12"><hr></div>
+					<!-- <div class="col-md-12"><hr></div> -->
 				</div>
 				<?php }?>
 				
 				<?php if ($related_projects = get_post_meta(get_the_ID(), 'related_posts', true)) {?>
 					<h3>Selected Related Projects</h3>
 					<?php 
-					$related_pages = get_pages(array('include'=>$related_pages));
-					foreach ($related_pages as $related_page) {?>
-						<a href="<?php echo get_permalink($related_page->id)?>"><?php echo $related_page->post_title?></a><br>
+					$related_projects = get_posts(array('post_type'=>'project', 'include'=>$related_projects, 'numberposts' => -1, 'orderby' => 'post__in'));
+					foreach ($related_projects as $related_project) {?>
+						<a href="<?php echo get_permalink($related_project->id)?>"><?php echo $related_project->post_title?></a><br>
 					<?php }
 				}?>
 			</div>
