@@ -14,7 +14,7 @@ add_filter('mce_buttons_2', function($buttons) {
 
 # Init: register main nav menu
 add_action('init', function(){
-	register_nav_menu('navbar', 'Navbar');
+	register_nav_menu('main', 'Main');
 	register_post_type('project',
 		array(
 			'labels' => array(

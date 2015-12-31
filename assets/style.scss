@@ -151,12 +151,30 @@ body {
 				padding: 0;
 				font-style: italic;
 			}
-			.carousel-caption {
-				right: 10%;
-				text-align: right;
+			.item {
+				height: 400px;
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+			#keywords {
+				color: white;
+				position: absolute;
+				right: 0;
+				bottom: 30px;
+				width: 250px;
 				h1 {
-					font-size: 40px;
-				}
+					font-size: 50px;
+					margin: 0 0 5px 0;
+					text-shadow: 2px 2px black;
+					opacity: 0;
+					-webkit-transition: opacity 1s ease;
+					-moz-transition: opacity 1s ease;
+					-ms-transition: opacity 1s ease;
+					-o-transition: opacity 1s ease;
+					transition: opacity 1s ease;
+					&.active { opacity: 1; }
+				}				
 			}
 		}
 		
@@ -166,17 +184,19 @@ body {
 		}
 		
 		.row.domain-topics {
-			font-size: 14px; text-align: center; margin-bottom: 0;
+			font-size: 17px; text-align: center; margin-bottom: 0;
 			a { 
 				border-top: 3px solid $blue; background-color: $gray-lighter; 
 				color: inherit; padding: 20px; display: block; margin-bottom: $margin;
-				strong { color: $red; font-style: italic; }
 				&:hover { text-decoration: none; }
 			}
 		}
+		.row.domain-topics, .row.about {
+			strong { color: $red; font-style: italic; }
+		}
 		
 		.row.about {
-			font-size: 15px; 
+			strong { color: $red; font-weight: bold; }
 			.spotlight {
 				font-size: 22px; 
 				min-height: 270px;
@@ -271,9 +291,9 @@ body {
 		.navbar { margin: 0; }
 		ul#menu-navbar { float: right; }
 		&.home .content .carousel { display: block; }
-		.mission p { margin-bottom: 0; }
+		.mission p { margin-bottom: 8px; }
 		.row.domain-topics a {
-			min-height: 100px;
+			min-height: 116px;
 		}
 	}
 	

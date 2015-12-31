@@ -32,7 +32,7 @@
 							</button>
 						</div>
 						<?php wp_nav_menu(array(
-							'menu'              => 'navbar',
+							'menu'              => 'main',
 							'theme_location'    => 'primary',
 							'depth'             => 2,
 							'container'         => 'div',

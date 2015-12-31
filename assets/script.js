@@ -1,5 +1,24 @@
 jQuery(document).ready(function($) {
 
+	//home page carousel
+	$('#carousel').on('slide.bs.carousel', function(event){
+		var title = $(event.relatedTarget).attr('data-title');
+		
+		//parse reignite-1 to reignite
+		var dashPosition = title.indexOf('-');
+		if (dashPosition !== -1) title = title.substr(0, dashPosition);
+		
+		if (title == 'reignite') {
+			$('h1#align').removeClass('active');
+			$('h1#mobilize').removeClass('active');
+		} else if (title == 'align') {
+			$('h1#align').addClass('active');
+		} else if (title == 'mobilize') {
+			$('h1#mobilize').addClass('active');
+		}
+		
+	});
+	
 	//inside page carousels
 	$('#gallery').on('slide.bs.carousel', function(event){
 		$('#gallery-controls > div').removeClass('active');
