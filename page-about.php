@@ -1,4 +1,8 @@
 <?php
+/**
+ * Template Name: About Us Page
+ */
+
 get_header();
 the_post();
 
@@ -7,7 +11,7 @@ $attachments = new Attachments('attachments');
 ?>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-10 col-md-offset-2">
 		<div class="page-header">
 			<h1><?php the_title()?></h1>
 		</div>
@@ -15,7 +19,17 @@ $attachments = new Attachments('attachments');
 </div>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-2 side-nav hidden-xs">
+		<strong>About Us</strong>
+	    <?php wp_nav_menu(array(
+		    'menu' => 'main',
+		    'level' => 2,
+		    'child_of' => 'About Us',
+		    'container' => false,
+		    'menu_class' => 'nav nav-stacked',
+		))?>
+	</div>
+	<div class="col-md-10">
 		<?php if ($attachments->exist()) {?>
 		<div class="row">
 			<div class="col-md-12 gallery">

@@ -36,17 +36,32 @@ jQuery(document).ready(function($) {
 		var dashPosition = title.indexOf('-');
 		if (dashPosition !== -1) title = title.substr(0, dashPosition);
 		
-		if (title == 'reignite') {
-			$('h1#align').removeClass('active');
-			$('h1#mobilize').removeClass('active');
-		} else if (title == 'align') {
-			$('h1#align').addClass('active');
-		} else if (title == 'mobilize') {
-			$('h1#mobilize').addClass('active');
+		//if last slide, hide all
+		if ($(event.relatedTarget).index() == 0) {
+			$('#carousel h1').removeClass('active');		
 		}
 		
+		//if second to last slide, pause for three seconds
+		if ($(event.relatedTarget).index() == carousel_slides) {
+			$('#carousel').carousel('pause');
+			setTimeout(function(){
+				$('#carousel').carousel('cycle');
+			}, 3000);
+		}
+		
+		//wait 1s to make changes
+		setTimeout(function(){
+			$('#carousel h1#' + title).addClass('active');
+		}, 1000);
 	});
 	
+	//need this later
+	var carousel_slides = $('#carousel .item').size() - 1;
+	
+	setTimeout(function(){
+		$('#carousel h1#reignite').addClass('active');
+	}, 1000);
+
 	//inside page carousels
 	$('#gallery').on('slide.bs.carousel', function(event){
 		$('#gallery-controls > div').removeClass('active');

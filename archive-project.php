@@ -5,8 +5,12 @@ $categories = get_categories();
 
 ?>
 
-<div class="page-header">
-	<h1>Projects</h1>
+<div class="row">
+	<div class="col-md-12">
+		<div class="page-header">
+			<h1>Projects</h1>
+		</div>
+	</div>
 </div>
 
 <div class="row projects">
