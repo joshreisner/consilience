@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 		
 		//if last slide, hide all
 		if ($(event.relatedTarget).index() == 0) {
-			$('#carousel h1').removeClass('active');		
+			$('#carousel h1 span').removeClass('active');		
 		}
 		
 		//if second to last slide, pause for three seconds
@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
 		
 		//wait 1s to make changes
 		setTimeout(function(){
-			$('#carousel h1#' + title).addClass('active');
+			$('#carousel h1 span#' + title).addClass('active');
 		}, 1000);
 	});
 	
@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
 	var carousel_slides = $('#carousel .item').size() - 1;
 	
 	setTimeout(function(){
-		$('#carousel h1#reignite').addClass('active');
+		$('#carousel h1 span#reignite').addClass('active');
 	}, 1000);
 
 	//inside page carousels

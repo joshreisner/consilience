@@ -7,6 +7,8 @@
         <title><?php echo get_bloginfo('name')?></title>
         <meta name="description" content="<?php bloginfo('description'); ?>">
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.png">
+		<script src="https://use.typekit.net/bwk8cwd.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 		<?php wp_head()?>
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -14,15 +16,19 @@
 		<![endif]-->
 	</head>
 	<body <?php body_class()?>>
-		<div class="container">
-			<div class="row banner">
-				<div class="col-xs-12">
-					<a href="/" class="logo">Consilience Group</a>
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<a href="/" class="logo">Consilience Group</a>
+					</div>
 				</div>
 			</div>
-			<div class="row navigation">
-				<div class="col-xs-12">
-					<nav class="navbar" role="navigation">
+		</header>
+		<nav>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 navbar">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
 								<span class="sr-only">Toggle navigation</span>
@@ -42,7 +48,7 @@
 							'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
 							'walker'            => new wp_bootstrap_navwalker(),
 						))?>
-					</nav>
+					</div>
 				</div>
 			</div>
-		
+		</nav>
