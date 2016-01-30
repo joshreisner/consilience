@@ -1,5 +1,6 @@
 body {
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 17px;
 }
 
 a { 
@@ -14,9 +15,14 @@ div.lead {
 p { margin: 0 0 20px 0; }
 
 h1, h2, h3, h4, .h1, .h2, .h3, .h4 { 
-	font-family: "Tw Cen MT", "Gill Sans", "Century Gothic", sans-serif; 
+	font-family: "Helvetica Neue", "Helvetica", sans-serif; 
 	font-weight: bold;
 }
+
+h1, .h1 { font-size: 36px; }
+h2, .h2 { font-size: 30px; }
+h3, .h3 { font-size: 24px; }
+h4, .h4 { font-size: 18px; }
 
 blockquote {
 	padding: 10px 20px;

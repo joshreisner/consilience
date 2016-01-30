@@ -16,49 +16,43 @@ $attachments = new Attachments('attachments', $post->ID);
 			</div>
 		</div>
 		
-		<?php if ($attachments->exist()) {?>
 		<div class="row">
-			<div class="col-md-12 gallery">
-				<div id="gallery" class="carousel slide" data-ride="carousel">
-					<div class="carousel-inner" role="listbox">
-					<?php while($index = $attachments->get()) {?>
-						<div class="item<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>">
-							<?php echo $attachments->image('full')?>
-							<div class="carousel-caption">
-								<?php echo $attachments->field('caption')?>
+			<div class="col-md-8 content">
+				<?php if ($attachments->exist()) {?>
+					<div id="gallery" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner" role="listbox">
+						<?php while($index = $attachments->get()) {?>
+							<div class="item<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>" style="background-image:url(<?php echo $attachments->src('full')?>)">
+								<div class="carousel-caption">
+									<?php echo $attachments->field('caption')?>
+								</div>
 							</div>
+						<?php }?>
+						</div>
+					</div>
+				<?php }
+				the_content();
+				?>
+			</div>
+			<div class="col-md-4 side">
+				<?php if ($attachments->exist() && $attachments->total() > 1) {
+					$attachments->rewind();
+					?>
+				<div class="row" id="gallery-controls">
+					<?php while($index = $attachments->get()) {?>
+						<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>">
+							<div class="thumbnail<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>" style="background-image:url(<?php echo $attachments->src('medium')?>)"></div>
 						</div>
 					<?php }?>
-					</div>
+					<!-- <div class="col-md-12"><hr></div> -->
 				</div>
-			</div>
-		</div>
-		<?php }?>
-		
-		<div class="row">
-			<div class="col-md-7 content">
-				<?php the_content()?>
-			</div>
-			<div class="col-md-5 side">
-						<?php if ($attachments->exist() && $attachments->total() > 1) {
-							$attachments->rewind();
-							?>
-						<div class="row" id="gallery-controls">
-							<?php while($index = $attachments->get()) {?>
-								<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>">
-									<div class="thumbnail<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>" style="background-image:url(<?php echo $attachments->src('medium')?>)"></div>
-								</div>
-							<?php }?>
-							<!-- <div class="col-md-12"><hr></div> -->
-						</div>
-						<?php }
+				<?php }
 		
 				$custom = get_post_custom($post->ID);
-				if (!empty($custom['testimonial'][0])) {
+				if (!empty($custom['sidebar'][0])) {
 					?>
-					<h3>Testimonial</h3>
-					<div class="block testimonial">
-						<?php echo nl2br($custom['testimonial'][0])?>
+					<div class="block sidebar">
+						<?php echo nl2br($custom['sidebar'][0])?>
 					</div>
 					<?php 
 				}	

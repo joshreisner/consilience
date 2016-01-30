@@ -13,22 +13,11 @@ jQuery(document).ready(function($) {
 			$('#carousel h1 span').removeClass('active');		
 		}
 		
-		//if second to last slide, pause for three seconds
-		if ($(event.relatedTarget).index() == carousel_slides) {
-			$('#carousel').carousel('pause');
-			setTimeout(function(){
-				$('#carousel').carousel('cycle');
-			}, 3000);
-		}
-		
 		//wait 1s to make changes
 		setTimeout(function(){
 			$('#carousel h1 span#' + title).addClass('active');
 		}, 1000);
 	});
-	
-	//need this later
-	var carousel_slides = $('#carousel .item').size() - 1;
 	
 	setTimeout(function(){
 		$('#carousel h1 span#reignite').addClass('active');

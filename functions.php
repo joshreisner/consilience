@@ -92,18 +92,21 @@ add_filter('tiny_mce_before_init', function($array) {
 		),  
 		array(  
 			'title' => 'Heading 2',  
-			'block' => 'h2',  
+			'block' => 'div',  
 			'wrapper' => true,
+			'classes' => 'h2',
 		),  
 		array(  
 			'title' => 'Heading 3',  
-			'block' => 'h3',  
+			'block' => 'div',  
 			'wrapper' => true,
+			'classes' => 'h3',
 		),  
 		array(  
 			'title' => 'Heading 4',  
-			'block' => 'h4',  
+			'block' => 'div',  
 			'wrapper' => true,
+			'classes' => 'h4',
 		),  
 		array(  
 			'title' => 'Blockquote',  
@@ -140,23 +143,6 @@ function deliver_mail() {
 
 	exit;
 }
-
-add_shortcode('contact_form', function(){
-	return '
-		<form method="post" id="contact">
-			<input name="action" type="hidden" value="contact">
-			<div class="row">
-				<div class="col-md-6"><input class="form-control required" name="name" pattern="[a-zA-Z0-9 ]+" type="text" placeholder="Name"></div>
-				<div class="col-md-6"><input class="form-control email required" name="email" type="email" placeholder="Email"></div>
-			</div>
-			<div class="row">
-				<div class="col-md-12"><textarea class="form-control required" name="message" placeholder="Message"></textarea></div>
-			</div>
-			<div class="row">
-				<div class="col-md-12"><input class="btn btn-primary form-control" type="submit" value="Send Message"></div>
-			</div>
-		</form>';
-});
 
 # Register menu walker
 require_once('wp_bootstrap_navwalker.php');

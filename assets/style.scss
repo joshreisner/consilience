@@ -9,9 +9,8 @@ $font-body: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 //$font-heading: "Tw Cen MT", "Gill Sans", "Century Gothic", sans-serif;
 //$font-heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-heading: "acumin-pro", sans-serif;
-$brand-primary: $red;
-$state-danger-text: $red;
-//$brand-danger: $red;
+
+$brand-danger: $red-variation;
 
 //$container-large-desktop: 970px;
 $margin: 20px;
@@ -33,7 +32,7 @@ body {
 	
 	//global tags
 	a { 
-		color: $red; 
+		color: $red-variation; 
 		&:hover, &:focus { color: $red-variation; }
 	}
 	
@@ -42,12 +41,29 @@ body {
 	h1, h2, h3, h4, .h1, .h2, .h3, .h4 { 
 		font-family: $font-heading; 
 		font-weight: 600;
+		line-height: 1.4;
 	}
 	
 	//helpers
 	.align-left { text-align: left; }
 	.align-center { text-align: center; }
 	.align-right { text-align: right; }
+	
+	form {
+		.form-control, .btn {
+			border-radius: 0;
+		}
+		.btn-primary {
+			background-color: $red-variation;
+			border-color: $red-variation;
+			&:hover, &:active, &:focus, &:focus:active {
+				outline: 0;
+				background-color: $red;
+				border-color: $red;
+			}
+		}
+		textarea.form-control { height: 200px; }
+	}
 
 	header, footer { padding: $margin 0; }
 	
@@ -70,6 +86,8 @@ body {
 	
 	nav {
 		background-color: $red-variation;
+		font-family: $font-heading;
+		font-weight: normal;
 		.navbar {
 			border: 0;
 			margin-bottom: 0;
@@ -78,7 +96,7 @@ body {
 				span { border-top: 1px solid $gray-lightish; }
 			}
 			a { 
-				color: $gray-lightish; 
+				color: #522; //$gray-lightish; 
 				padding-left: $margin;
 				padding-right: $margin;
 				&:hover, &:focus { 
@@ -139,15 +157,13 @@ body {
 		}
 		
 		#gallery {
-			height: 300px; background-color: #f3f3f3; 
+			margin-bottom: $margin;
 			.item {
-				height: 300px;
+				height: 340px;
 				overflow: hidden;
-				img {
-					margin: 0 auto; 
-					height: 300px;
-					width: auto;
-				}
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
 			}
 		}
 		
@@ -172,7 +188,7 @@ body {
 		.carousel {
 			display: none; 
 			.item {
-				height: 550px;
+				height: 450px;
 				background-size: cover;
 				background-position: center center;
 				background-repeat: no-repeat;
@@ -205,26 +221,36 @@ body {
 		}
 		
 		.mission {
+			background-color: #333;
+			color: $white;
 			padding: $margin;
-			background-color: $gray-lighter;
-			h3 { margin: 10px 0; font-size: 25px; text-align: center; }
+			div { margin-bottom: 0; }
+			h3 {
+				margin: 10px 0 15px;
+				font-size: 30px;
+				font-weight: 100;
+				text-align: center; 
+			}
 		}
 		
-		.domains {
-			background-image: url(../img/people.jpg);
-			background-size: cover;
-			background-repeat: no-repeat;
+		.sectors {
 			text-align: center;
+			background-color: $gray;
+			.inner {
+				background-image: url(../img/people.jpg);
+				background-size: cover;
+				background-repeat: no-repeat;				
+			}
 			.row {
-				margin: -1px 0 0 -1px;
+				margin: 0;
 				div {
-					margin-bottom: 0;
+					padding: 0;
 					display: table;
-					padding: 1px 0 0 1px;
+					margin: 0;
 					a {
 						display: table-cell;
 						vertical-align: middle;
-						height: 200px;
+						height: 120px;
 						background-color: rgba(0, 0, 0, .5);
 						color: $white;
 						-webkit-transition: background .5s ease-out;
@@ -233,7 +259,7 @@ body {
 						transition: background .5s ease-out;
 						h4 {
 							padding: 4px 10px;
-							background-color: $gray-dark;
+							background-color: rgba(0, 0, 0, .4);
 							display: inline; 	
 						}
 						&:hover {
@@ -245,23 +271,26 @@ body {
 			}
 		}
 
-		.row.about {
-			font-size: 42px;
+		.about {
 			margin-top: 15px;
 			strong { color: $red; font-weight: bold; }
-			.spotlight {
-				font-size: 19px;
+			.headings {
+				border-bottom: 1px solid $gray-lighter;
+				padding: $margin 0 0;
+				margin-bottom: $margin;
+				font-size: 30px;
+				font-family: $font-heading;
+				font-weight: 100;
+				color: $red;
+			}
+			.stories {
+				font-size: 18px;
 				min-height: 270px;
-				background-image: url(../img/logo-tree.svg);
-				background-repeat: no-repeat;
-				background-size: contain;
-				background-position: center center;
-				small {
-					background-color: $red;
-					color: white;
-					display: block;
-					padding: 2px 4px;
-					margin-bottom: 15px;
+				&.spotlight {
+					background-image: url(../img/logo-tree.svg);
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: center center;
 				}
 				h3 { margin: 0 0 10px; }
 				img { 
@@ -275,13 +304,13 @@ body {
 		}
 	}
 	
-	&.page {
-		form#contact {
-			input, textarea, .btn {
-				border-radius: 0;
+	&.page-template-page-contact {
+		main {
+			font-size: 18px;
+			a {
+				white-space: nowrap;
 			}
-			textarea { height: 200px; }
-		}		
+		}
 	}
 	
 	&.post-type-archive-project {
@@ -320,14 +349,14 @@ body {
 		}
 	}
 	
-	&.single-projects {
+	&.single-project {
 		.side {
 			h3 { margin-top: 0; }
-			.testimonial {
+			blockquote {
 				border-left: 5px solid #eee;
 				padding-left: 10px; 
-				font-size: 14px;
 				font-style: italic;
+				font-size: 15px;
 			}
 			.block {
 				margin-bottom: $margin;
@@ -347,10 +376,13 @@ body {
 				float: none;
 			}
 		}
-		&.home .carousel { display: block; }
-		.mission p { margin-bottom: 8px; }
-		.row.domain-topics a {
-			min-height: 116px;
+		&.home {
+			.carousel { display: block; }
+			.mission p { margin-bottom: 8px; }
+			.sectors .row div.col-md-4{
+				width: 33.33334%;
+				a { height: 200px; }
+			}
 		}
 	}
 	
