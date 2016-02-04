@@ -12,8 +12,10 @@ add_filter('mce_buttons_2', function($buttons) {
 	return $buttons;
 });
 
-# Init: register main nav menu
+# Init: register menus, custom objects, and taxonomies
 add_action('init', function(){
+	
+	//register nav menu
 	register_nav_menu('main', 'Main');
 	register_post_type('project',
 		array(
@@ -41,7 +43,58 @@ add_action('init', function(){
 			'hierarchical' => true,
 			'rewrite' => array('slug'=>'projects'),
 		)
+	);
+	
+	//people
+	register_post_type('person',
+		array(
+			'labels' => array(
+				'name'					=> __('People'),
+				'singular_name'			=> __('Person'),
+				'menu_name'				=> _x('People', 'admin menu'),
+				'name_admin_bar'		=> _x('Person', 'add new on admin bar'),
+				'add_new'				=> _x('Add New', 'book'),
+				'add_new_item'			=> __('Add New Person'),
+				'new_item'				=> __('New Person'),
+				'edit_item'				=> __('Edit Person'),
+				'view_item'				=> __('View Person'),
+				'all_items'				=> __('All People'),
+				'search_items'			=> __('Search People'),
+				'parent_item_colon'		=> __('Parent People:'),
+				'not_found'				=> __('No people found.'),
+				'not_found_in_trash' 	=> __('No people found in Trash.'),
+			),
+			'supports' => array('title', 'editor', 'thumbnail'),
+			'taxonomies' => array('team'),
+			'public' => true,
+			'has_archive' => true,
+			'menu_position' => 20,
+			'menu_icon' => 'dashicons-admin-users',
+			'hierarchical' => true,
+			'rewrite' => array('slug'=>'people'),
+		)
 	);	
+	register_taxonomy('team', array('person'), array(
+		'hierarchical'      => true,
+		'labels'            => array(
+			'name'              => _x('Teams', 'taxonomy general name'),
+			'singular_name'     => _x('Team', 'taxonomy singular name'),
+			'search_items'      => __('Search Teams'),
+			'all_items'         => __('All Teams'),
+			'parent_item'       => __('Parent Team'),
+			'parent_item_colon' => __('Parent Team:'),
+			'edit_item'         => __('Edit Team'),
+			'update_item'       => __('Update Team'),
+			'add_new_item'      => __('Add New Team'),
+			'new_item_name'     => __('New Team Name'),
+			'menu_name'         => __('Teams'),
+		),
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array('slug' => 'team'),
+	));
+	add_theme_support('post-thumbnails', array('person'));
 });
 
 # Attachments config
@@ -69,6 +122,30 @@ add_action('attachments_register', function($attachments){
 		),
 	));
 });
+
+# Excerpt
+add_filter('excerpt_more', function($more) {
+	return '&hellip;';
+});
+
+function get_excerpt_by_id($post_id){
+    $the_post = get_post($post_id); //Gets post ID
+    $the_excerpt = $the_post->post_content; //Gets post_content to be used as a basis for the excerpt
+    $excerpt_length = 35; //Sets excerpt length by word count
+    $the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+    $words = explode(' ', $the_excerpt, $excerpt_length + 1);
+
+    if(count($words) > $excerpt_length) :
+        array_pop($words);
+        array_push($words, '…');
+        $the_excerpt = implode(' ', $words);
+    endif;
+
+    $the_excerpt = '<p>' . $the_excerpt . '</p>';
+
+    return $the_excerpt;
+}
+
 
 # Customize admin bar
 add_action('admin_bar_menu', function($wp_admin_bar) {

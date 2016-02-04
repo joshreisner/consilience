@@ -35,17 +35,16 @@ jQuery(document).ready(function($) {
 	});
 	
 	//isotope
-	$grid = $('.post-type-archive-project .row.projects .main .row');
+	$grid = $('.post-type-archive-project .content .row');
 	$grid.isotope({
 		itemSelector: 'a',
-		layoutMode: 'masonry',
+		layoutMode: 'fitRows',
 	});
 
-	$('.post-type-archive-project .row.projects .filter li').click(function(){
-		$('.post-type-archive-project .row.projects .filter li').removeClass('active');
-		$(this).addClass('active');
-		var filter = $(this).attr('data-filter') ? '.' + $(this).attr('data-filter') : '*';
-		$grid.isotope({ filter: filter });
+	$('.post-type-archive-project .side-nav').on('click', 'a', function(){
+		$('.post-type-archive-project .side-nav li').removeClass('active');
+		$(this).parent().addClass('active');
+		$grid.isotope({ filter: $(this).attr('data-filter') });
 	});
 
 	//contact form

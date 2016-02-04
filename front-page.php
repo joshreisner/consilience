@@ -71,16 +71,17 @@
 							The TN NAS Collaborative used Consilience by Design&trade; for its innovation model to be highlighted at the <a href="http://www.healthycommunities.org/Conference/index.shtml" target="_blank">ACHI From Health Care to Healthy Communities 2016 Conference</a>.
 						</p>
 					</div>
+					<?php
+					$posts = get_posts(array('numberposts' => 2));
+					foreach ($posts as $post) {
+						the_post();
+					?>
 					<div class="col-md-4">
-						<h3>Insights Post #1</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue leo, pulvinar eget convallis ac, pulvinar sit amet lectus. Nam rutrum massa a tempus gravida. Fusce vitae justo mauris. Morbi imperdiet et ligula non dignissim. Pellentesque ac condimentum nisl, a malesuada nisi.</p>
-						<p><a href="#">Read more &gt;</a></p>
+						<h3><?php echo $post->post_title?></h3>
+						<p><?php echo get_the_excerpt()?></p>
+						<p><a href="<?php echo get_the_permalink($post->ID)?>" class="btn btn-default">Read more</a></p>
 					</div>
-					<div class="col-md-4">
-						<h3>Insights Post #2</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue leo, pulvinar eget convallis ac, pulvinar sit amet lectus. Nam rutrum massa a tempus gravida. Fusce vitae justo mauris. Morbi imperdiet et ligula non dignissim. Pellentesque ac condimentum nisl, a malesuada nisi.</p>
-						<p><a href="#">Read more &gt;</a></p>
-					</div>
+					<?php }?>
 				</div>
 			</div>
 		</div>

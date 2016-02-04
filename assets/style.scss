@@ -5,10 +5,6 @@ $red-variation: #c22;
 $gray-lightish: #ccc;
 $gray-dark: #222;
 $white: #fff;
-$font-body: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-//$font-heading: "Tw Cen MT", "Gill Sans", "Century Gothic", sans-serif;
-//$font-heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-heading: "acumin-pro", sans-serif;
 
 $brand-danger: $red-variation;
 
@@ -27,27 +23,26 @@ $margin: 20px;
 body {
 	
 	background-color: $gray-dark;
-	color: $gray-light; 
-	font-family: $font-body;
+	color: $gray-light;
+	font-size: 15px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
 	
 	//global tags
 	a { 
 		color: $red-variation; 
+		cursor: pointer;
 		&:hover, &:focus { color: $red-variation; }
 	}
 	
 	p { margin: 0 0 $margin; }
 	
 	h1, h2, h3, h4, .h1, .h2, .h3, .h4 { 
-		font-family: $font-heading; 
 		font-weight: 600;
 		line-height: 1.4;
 	}
 	
-	//helpers
-	.align-left { text-align: left; }
-	.align-center { text-align: center; }
-	.align-right { text-align: right; }
+	img { max-width: 100%; height: auto; }
 	
 	form {
 		.form-control, .btn {
@@ -86,7 +81,6 @@ body {
 	
 	nav {
 		background-color: $red-variation;
-		font-family: $font-heading;
 		font-weight: normal;
 		.navbar {
 			border: 0;
@@ -144,12 +138,11 @@ body {
 				border-top: 1px solid $gray-lightish;
 				margin: 0;
 				& > a { color: inherit; }
-				&.current_page_item { background-color: $gray-lighter; }
+				&.current-menu-item, &.active { background-color: $gray-lighter; }
 			}
 		}
 		
 		.content {
-			font-size: 17px; 
 			.lead {
 				font-size: 21px;
 				color: #aaa;
@@ -178,9 +171,38 @@ body {
 	}	
 
 	footer {
-		font-size: 15px;
-
-		.row > div { margin-bottom: $margin; }
+		a {
+			color: inherit; 
+			&:hover {
+				text-decoration: none;
+				color: #ccc;
+			}
+		}
+		.row > div { 
+			margin-bottom: $margin; 
+			text-align: center;
+			&:first-child {
+				position: relative;
+				padding-top: 120px;
+				&:before {
+					content: "";
+					background-image: url(../img/logo-tree.svg); 
+					background-size: contain;
+					background-position: center center;
+					background-repeat: no-repeat;
+					opacity: .5;
+					width: 100px;
+					height: 100px;
+					position: absolute;
+					top: 0;
+					left: 50%;
+					margin-left: -50px;
+				}
+			}
+			&.social {
+				font-size: 30px;
+			}
+		}
 	}
 	
 	//template-specific styles
@@ -227,7 +249,7 @@ body {
 			div { margin-bottom: 0; }
 			h3 {
 				margin: 10px 0 15px;
-				font-size: 30px;
+				font-size: 29px;
 				font-weight: 100;
 				text-align: center; 
 			}
@@ -278,13 +300,11 @@ body {
 				border-bottom: 1px solid $gray-lighter;
 				padding: $margin 0 0;
 				margin-bottom: $margin;
-				font-size: 30px;
-				font-family: $font-heading;
+				font-size: 29px;
 				font-weight: 100;
 				color: $red;
 			}
 			.stories {
-				font-size: 18px;
 				min-height: 270px;
 				&.spotlight {
 					background-image: url(../img/logo-tree.svg);
@@ -292,54 +312,59 @@ body {
 					background-size: contain;
 					background-position: center center;
 				}
-				h3 { margin: 0 0 10px; }
+				h3 { margin: 0 0 10px; height: 60px; font-size: 20px; }
 				img { 
 				    float: left;
 				    width: 90px;
 				    height: auto;
-				    margin: 8px 10px 10px 0;
+				    margin: 4px 14px 10px 0;
 				    @include shadowed();					
 				}
 			}
 		}
 	}
 	
-	&.page-template-page-contact {
-		main {
-			font-size: 18px;
-			a {
-				white-space: nowrap;
+	//people page
+	&.post-type-archive-person {
+		.content {
+			h3 {
+				font-weight: 100;
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+			h5 {
+				font-weight: bold;
+			}
+			.person .excerpt { 
+				height: 170px;
 			}
 		}
 	}
 	
+	//projects page
 	&.post-type-archive-project {
 		.row.projects {
-			.filter {
-				ul {
-					padding: 0;
-					list-style-type: none;
-					li {
-						cursor: pointer;
-						padding: 10px; 
-						border-bottom: 1px solid #ccc;
-						text-indent: 0;
-						&.active {
-							background-color: #eee;
-						}
-					}
-				}
-			}
-			.main {
+			.content {
 				a {
 					color: inherit;
-					margin-bottom: 40px;
+					margin-bottom: 20px;
 					font-size: 15px;
-					& > div {
-						height: 200px; background-size: contain; background-repeat: no-repeat;
+					h4 {
+						margin-top: 0;
+						height: 50px;
+						overflow: hidden;
+					}
+					div.image {
+						height: 200px;
+						background-size: contain;
+						background-repeat: no-repeat;
 						background-position: center center;
-						background-color: #eee;
 						margin-bottom: 4px;
+					}
+					div.question {
+						height: 100px;
+						overflow: hidden;
 					}
 					&:hover {
 						text-decoration: none;
@@ -349,6 +374,7 @@ body {
 		}
 	}
 	
+	//project detail page (duplicative of page side?)
 	&.single-project {
 		.side {
 			h3 { margin-top: 0; }
@@ -363,6 +389,25 @@ body {
 			}
 		}
 	}
+	
+	//blog
+	&.blog, &.single {
+		.post {
+			margin-bottom: 60px;
+			h3 { margin-top: 0; }
+		}	
+	}
+	
+	//contact page
+	&.page-template-page-contact {
+		main {
+			font-size: 18px;
+			a {
+				white-space: nowrap;
+			}
+		}
+	}
+	
 }
 
 @media (min-width: $screen-sm-min) {
@@ -389,6 +434,29 @@ body {
 }
 
 @media (min-width: $screen-md-min) {
+	body {
+		footer {
+			padding: 30px 0;
+			.row > div {
+				height: 50px;
+				margin: 0;
+				padding-top: 4px !important;
+				&:first-child {
+					text-align: left;
+					padding-left: 80px;
+					&:before {
+						left: 15px;
+						margin-left: 0;
+						width: 50px;
+						height: 50px;
+					}
+				}
+				&:last-child {
+					text-align: right;
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: $screen-lg-min) {

@@ -7,8 +7,6 @@
         <title><?php echo get_bloginfo('name')?></title>
         <meta name="description" content="<?php bloginfo('description'); ?>">
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.png">
-		<script src="https://use.typekit.net/bwk8cwd.js"></script>
-		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 		<?php wp_head()?>
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

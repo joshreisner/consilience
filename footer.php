@@ -1,17 +1,22 @@
 		<footer>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4">					
+					<div class="col-md-3">					
 						Consilience Group&trade;, LLC<br>
 						&copy; <?php echo date('Y')?>
 					</div>
-					<div class="col-md-4 align-center">
+					<div class="col-md-3">
 						580 Monteigne Blvd.<br>
 						Memphis, TN 38103
 					</div>
-					<div class="col-md-4 align-right">
-						(901) 312-5529 voice<br>
-						(901) 328-1537 fax
+					<div class="col-md-3 social">
+						<a class="fa fa-facebook-square"></a>
+						<a class="fa fa-twitter-square"></a>
+						<a class="fa fa-linkedin-square"></a>
+					</div>
+					<div class="col-md-3">
+						<div>voice <a href="tel:9013125529">(901) 312-5529</a></div>
+						<div>fax <a href="tel:9013281537">(901) 328-1537</a></div>
 					</div>
 				</div>
 			</div>
