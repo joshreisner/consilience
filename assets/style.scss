@@ -249,7 +249,7 @@ body {
 			div { margin-bottom: 0; }
 			h3 {
 				margin: 10px 0 15px;
-				font-size: 29px;
+				font-size: 27px;
 				font-weight: 100;
 				text-align: center; 
 			}
@@ -327,17 +327,30 @@ body {
 	//people page
 	&.post-type-archive-person {
 		.content {
+			a {
+				text-align: center;
+				color: inherit;
+				display: block;
+				@include shadowed();
+				background-color: #f3f3f3;
+				div { margin: 10px auto; }
+				&:hover {
+					text-decoration: none;
+					background-color: #fff;
+				}
+			}
 			h3 {
 				font-weight: 100;
 				&:first-child {
 					margin-top: 0;
 				}
 			}
-			h5 {
-				font-weight: bold;
+			h4 {
+				font-size: inherit;
+				margin-top: 0;
 			}
-			.person .excerpt { 
-				height: 170px;
+			.info {
+				padding: 10px 0; 
 			}
 		}
 	}

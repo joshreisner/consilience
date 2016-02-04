@@ -47,14 +47,14 @@ get_header();
 							
 							foreach ($people as $person) {
 								?>
-								<div class="col-md-4 person">
+								<div class="col-md-3 person">
 									<a href="<?php echo get_permalink($person->ID)?>">
 										<?php if ($thumbnail = get_the_post_thumbnail($person->ID)) echo $thumbnail?>
-										<h4><?php echo $person->post_title?></h4>
+										<div class="info">
+											<h4><?php echo $person->post_title?></h4>
+											<?php if ($title = get_field('title', $person->ID)) {?><h5><?php echo $title?></h5><?php }?>
+										</div>
 									</a>
-									<?php if ($title = get_field('title', $person->ID)) {?><h5><?php echo $title?></h5><?php }?>
-									<div class="excerpt"><?php echo get_excerpt_by_id($person->ID)?></div>
-									<a href="<?php echo get_permalink($person->ID)?>" class="btn btn-default">Read Bio</a>
 								</div>
 							<?php }?>
 						</div>
