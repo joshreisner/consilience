@@ -325,32 +325,62 @@ body {
 	}
 	
 	//people page
-	&.post-type-archive-person {
+	&.page-template-page-people {
 		.content {
-			a {
-				text-align: center;
-				color: inherit;
-				display: block;
-				@include shadowed();
-				background-color: #f3f3f3;
-				div { margin: 10px auto; }
-				&:hover {
-					text-decoration: none;
-					background-color: #fff;
-				}
-			}
-			h3 {
+			h2 {
 				font-weight: 100;
-				&:first-child {
-					margin-top: 0;
+				font-size: 24px;
+				margin-top: 30px;
+			}
+			.consilience-group-principals, .core-team {
+				margin-bottom: 20px;
+				img { margin-top: 6px; }
+				h3 { 
+					margin-top: 0; 
+					font-size: 20px;
+				}
+				.info {
+					overflow: hidden;
+					position: relative;
+					-webkit-transition: max-height .5s ease-out;
+					-moz-transition: max-height .5s ease-out;
+					-o-transition: max-height .5s ease-out;
+					transition: max-height .5s ease-out;
+					&::after {
+						position: absolute;
+						content: "Read More";
+						text-decoration: underline;
+						display: block;
+						cursor: pointer;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						padding-top: 20px;
+						background: linear-gradient(to bottom, rgba(255,255,255,0) 0, rgba(255,255,255,.9) 40%, #fff 100%)
+					}
+					&.expanded {
+						height: auto;
+						&::after {
+							padding: 0;
+							background: transparent;
+							position: static;
+							content: "Close ↑";
+						}
+					}
 				}
 			}
-			h4 {
-				font-size: inherit;
-				margin-top: 0;
+			.consilience-group-principals .info {
+				height: 238px;
 			}
-			.info {
-				padding: 10px 0; 
+			.core-team .info {
+				height: 173px;
+			}
+			.partners-collaborators {
+				h3 { margin-top: 0; }
+				& > div:nth-child(2n + 1) {
+					clear: left; 
+					p:last-child { margin-bottom: 0; }
+				}
 			}
 		}
 	}

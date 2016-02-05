@@ -62,7 +62,12 @@ jQuery(document).ready(function($) {
 	    $('#gallery').carousel($(this).index());
 	});
 	
-	//isotope
+	//people page expanded text
+	$('body.page-template-page-people .content').on('click', '.info', function(){
+		$(this).toggleClass('expanded');
+	});
+	
+	//projects page isotope
 	$grid = $('.post-type-archive-project .content .row');
 	$grid.isotope({
 		itemSelector: 'a',
