@@ -231,3 +231,96 @@ function dd($content) {
 	print_r($content);
 	exit;
 }
+
+function consilience_gallery($attachments) {
+	if ($attachments->exist()) {?>
+		<div id="gallery" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner" role="listbox">
+			<?php while($index = $attachments->get()) {?>
+				<div class="item<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>" style="background-image:url(<?php echo $attachments->src('full')?>)">
+					<div class="carousel-caption">
+						<?php echo $attachments->field('caption')?>
+					</div>
+				</div>
+			<?php }?>
+			</div>
+		</div>
+	<?php 
+	}
+}
+
+function consilience_gallery_controls($attachments) {
+	if ($attachments->exist() && $attachments->total() > 1) {
+		$attachments->rewind();
+		?>
+	<div class="row block" id="gallery-controls">
+		<?php while($index = $attachments->get()) {?>
+			<div class="col-md-6<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>">
+				<div class="thumbnail<?php if ($index->id == $attachments->id(0)) {?> active<?php }?>" style="background-image:url(<?php echo $attachments->src('medium')?>)"></div>
+			</div>
+		<?php }?>
+	</div>
+	<?php }
+}
+
+function consilience_sidebar() {
+	if ($sidebar = get_field('sidebar')) {
+		?>
+		<div class="block sidebar">
+			<?php echo apply_filters('the_content', $sidebar)?>
+		</div>
+		<?php 
+	}
+}
+
+function consilience_related_projects() {
+	if ($related_projects = get_field('related_posts')) {?>
+		<h3>Selected Related Projects</h3>
+		<div class="block related">
+			<ul>
+		<?php 
+		$related_projects = get_posts(array(
+			'post_type'		=> 'project', 
+			'include'		=> $related_projects, 
+			'numberposts'	=> -1, 
+			'orderby'		=> 'post__in',
+		));
+		foreach ($related_projects as $related_project) {?>
+			<li><a href="<?php echo get_permalink($related_project->id)?>"><?php echo $related_project->post_title?></a></li>
+		<?php }?>
+			</ul>
+		</div>
+	<?php }	
+}
+
+function consilience_side_nav() {
+	global $post;
+	
+	//get the nav menu
+	$items = wp_get_nav_menu_items('main');
+
+	//loop through and find the ancestor of the current item, or return false	
+	$ancestor = false;
+	foreach ($items as $item) {
+		if ($item->object_id == $post->ID) {
+			$ancestor = $item->menu_item_parent;
+		}
+	}
+	if (!$ancestor) return false;
+	
+	foreach ($items as $item) {
+		if ($item->ID == $ancestor) {
+			$ancestor = $item->title;
+		}
+	}
+	
+	//return nav menu HTML
+	return '<strong>' . $ancestor . '</strong>' . wp_nav_menu(array(
+	    'menu' => 'main',
+	    'level' => 2,
+	    'child_of' => $ancestor,
+	    'container' => false,
+	    'menu_class' => 'nav nav-stacked',
+	    'echo' => false,
+	));	
+}
