@@ -54,9 +54,7 @@ the_post();
 						foreach ($people as $person) {?>
 							<div class="row <?php echo $team->slug?>">
 								<div class="col-sm-4">
-									<a href="<?php echo get_permalink($person->ID)?>">
-										<?php if ($thumbnail = get_the_post_thumbnail($person, 'large')) echo $thumbnail?>
-									</a>
+									<?php if ($thumbnail = get_the_post_thumbnail($person, 'large')) echo $thumbnail?>
 								</div>
 								<div class="col-sm-8">
 									<div class="info">
@@ -73,9 +71,7 @@ the_post();
 						foreach ($people as $person) {?>
 							<div class="row <?php echo $team->slug?>">
 								<div class="col-sm-3">
-									<a href="<?php echo get_permalink($person->ID)?>">
-										<?php if ($thumbnail = get_the_post_thumbnail($person->ID)) echo $thumbnail?>
-									</a>
+									<?php if ($thumbnail = get_the_post_thumbnail($person->ID)) echo $thumbnail?>
 								</div>
 								<div class="col-sm-9">
 									<div class="info">

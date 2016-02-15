@@ -194,8 +194,6 @@ body {
 					background-position: center center;
 					background-repeat: no-repeat;
 					.carousel-caption {
-						background: rgba(255, 255, 255, .6);
-						color: black;
 						left: auto;
 						right: 0;
 						bottom: 0;
@@ -203,7 +201,6 @@ body {
 						text-align: right;
 						font-size: 13px;
 						font-style: italic;
-						text-shadow: none;
 					}
 				}
 			}
@@ -240,6 +237,7 @@ body {
 
 			blockquote {
 				font-size: 16px;
+				font-family: Georgia, serif;
 			}
 
 			#gallery-controls {
@@ -387,7 +385,7 @@ body {
 			}
 		}
 
-		.about {
+		.news {
 			margin-top: 15px;
 			strong { color: $red; font-weight: bold; }
 			.headings {
@@ -406,13 +404,16 @@ body {
 					background-size: contain;
 					background-position: center center;
 				}
-				h3 { margin: 0 0 10px; height: 60px; font-size: 20px; }
-				img { 
-				    float: left;
-				    width: 90px;
-				    height: auto;
-				    margin: 4px 14px 10px 0;
-				    @include shadowed();					
+				h3 { margin: 0 0 10px; font-size: 20px; }
+				img { margin-bottom: $margin; }
+				p.excerpt {
+					img { 
+					    float: left;
+					    width: 90px;
+					    height: auto;
+					    margin: 4px 14px 10px 0;
+					    @include shadowed();
+					}
 				}
 			}
 		}
