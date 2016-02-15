@@ -34,13 +34,16 @@ body {
 		cursor: pointer;
 		&:hover, &:focus { color: $red-variation; }
 	}
+
+	blockquote {
+		clear: both;
+		border-left: 5px solid #eee;
+		padding: 5px 15px; 
+		font-style: italic;
+		font-size: inherit;
+	}
 	
 	p { margin: 0 0 $margin; }
-	
-	h1, h2, h3, h4, .h1, .h2, .h3, .h4 { 
-		font-weight: 600;
-		line-height: 1.4;
-	}
 	
 	img { max-width: 100%; height: auto; }
 	
@@ -59,7 +62,19 @@ body {
 		}
 		textarea.form-control { height: 200px; }
 	}
-
+	
+	//helpers
+	.alignleft { 
+		float: left; margin: 0 $margin $margin 0; 
+	    @include shadowed();					
+	}
+	
+	.alignright { 
+		float: left; margin: 0 0 $margin $margin; 
+	    @include shadowed();					
+	}
+	
+	//template
 	header, footer { padding: $margin 0; }
 	
 	header {
@@ -143,6 +158,30 @@ body {
 				& > a { color: inherit; }
 				&.current-menu-item, &.active { background-color: $gray-lighter; }
 			}
+			//back to projects
+			a.back {
+				color: #aaa;
+				display: block;
+				height: 50px;
+				i { 
+					font-size: 38px; 
+					float: left;
+					height: 50px;
+					width: 40px;
+				}
+				span {
+					width: 100px;
+					font-size: 17px;
+					display: block;
+					float: left;					
+					height: 50px;
+					line-height: 1.2;
+				}
+				&:hover { 
+					color: #222;
+					text-decoration: none; 
+				}
+			}
 		}
 		
 		.content {
@@ -154,28 +193,53 @@ body {
 					background-size: cover;
 					background-position: center center;
 					background-repeat: no-repeat;
+					.carousel-caption {
+						background: rgba(255, 255, 255, .6);
+						color: black;
+						left: auto;
+						right: 0;
+						bottom: 0;
+						padding: 5px 10px;
+						text-align: right;
+						font-size: 13px;
+						font-style: italic;
+						text-shadow: none;
+					}
 				}
 			}
 			.lead {
 				font-size: 21px;
 				color: #aaa;
 			}
+			h2, h3, h4, .h2, .h3, .h4 {
+				color: #999;
+				font-weight: bold;
+				p { margin: 0; }
+			}
+			h2, .h2 { font-size: 26px; }
+			h3, .h3 { font-size: 21px; }
+			h4, .h4 { font-size: 17px; }
 		}
 
 		.side {
 			font-size: 14px;
 
+			h2, h3, h4, .h2, .h3, .h4 {
+				p { margin: 0; }
+			}
+			
 			h3, .h3 {
-				margin-top: 30px; font-size: 20px; 
+				clear: both;
+				margin-top: 30px;
+				font-size: 20px; 
 				font-weight: 100;
-				border-bottom: 1px solid #eee;
+				border-bottom: 1px solid #ddd;
+				padding-bottom: 5px;
+				&:first-child { margin-top: 0; }
 			}
 
 			blockquote {
-				border-left: 5px solid #eee;
-				padding-left: 10px; 
-				font-style: italic;
-				font-size: 15px;
+				font-size: 16px;
 			}
 
 			#gallery-controls {
@@ -289,7 +353,7 @@ body {
 			text-align: center;
 			background-color: $gray;
 			.inner {
-				background-image: url(../img/people.jpg);
+				background-image: url(../img/people-background.jpg);
 				background-size: cover;
 				background-repeat: no-repeat;				
 			}
@@ -450,8 +514,8 @@ body {
 	//blog
 	&.blog, &.single {
 		.post {
-			margin-bottom: 60px;
-			h3 { margin-top: 0; }
+			margin-bottom: $margin;
+			h3 { margin: 0 0 15px; }
 		}	
 	}
 	

@@ -55,7 +55,7 @@ the_post();
 							<div class="row <?php echo $team->slug?>">
 								<div class="col-sm-4">
 									<a href="<?php echo get_permalink($person->ID)?>">
-										<?php if ($thumbnail = get_the_post_thumbnail($person->ID)) echo $thumbnail?>
+										<?php if ($thumbnail = get_the_post_thumbnail($person, 'large')) echo $thumbnail?>
 									</a>
 								</div>
 								<div class="col-sm-8">

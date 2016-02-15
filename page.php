@@ -31,6 +31,7 @@ $attachments = new Attachments('attachments');
 						consilience_gallery_controls($attachments);
 						consilience_sidebar();
 						consilience_related_projects();
+						consilience_side_lower();
 						?>
 					</div>
 				</div>

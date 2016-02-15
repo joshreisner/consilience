@@ -48,6 +48,17 @@
 		</div>
 	</div>
 	
+	<div class="mission">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Social sector organizations commit to long-term journeys that help transform lives.</h3>
+					<h3>We join them at key points with expertise and short-term bandwidth to accelerate impact.</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="about">
 		<div class="headings">
 			<div class="container">

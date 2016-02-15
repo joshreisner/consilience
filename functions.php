@@ -12,6 +12,11 @@ add_filter('mce_buttons_2', function($buttons) {
 	return $buttons;
 });
 
+# Customizing read more link
+add_filter('the_content_more_link', function() {
+	return '<a class="btn btn-default" href="' . get_permalink() . '">Read more</a>';
+});
+
 # Init: register menus, custom objects, and taxonomies
 add_action('init', function(){
 	
@@ -95,7 +100,7 @@ add_action('init', function(){
 		'query_var'         => true,
 		'rewrite'           => array('slug' => 'team'),
 	));
-	add_theme_support('post-thumbnails', array('person'));
+	add_theme_support('post-thumbnails', array('person', 'post'));
 });
 
 # Attachments config
@@ -114,11 +119,17 @@ add_action('attachments_register', function($attachments){
 		'router'		=> 'browse',   //browse|upload
 		'post_parent'	=> false,      // whether Attachments should set 'Uploaded to' (if not already set)
 		'fields'		=> array(
-			array(
+			/* array(
 				'name'	=> 'title',
 				'type'	=> 'text',
 				'label'	=> __('Title', 'attachments'),
 				'default'	=> 'title',
+			),*/
+			array(
+				'name'	=> 'caption',
+				'type'	=> 'text',
+				'label'	=> __('Caption', 'attachments'),
+				'default'	=> 'caption',
 			),
 		),
 	));
@@ -157,7 +168,7 @@ add_action('admin_bar_menu', function($wp_admin_bar) {
 
 # Admin init: register editor stylesheet
 add_action('admin_init', function(){
-	add_editor_style('/assets/css/editor-style.css');
+	add_editor_style('assets/css/editor-style.css');
 });
 
 add_filter('tiny_mce_before_init', function($array) {  
@@ -273,6 +284,16 @@ function consilience_sidebar() {
 	}
 }
 
+function consilience_side_lower() {
+	if ($sidebar = get_field('side_lower')) {
+		?>
+		<div class="block sidebar">
+			<?php echo apply_filters('the_content', $sidebar)?>
+		</div>
+		<?php 
+	}
+}
+
 function consilience_related_projects() {
 	if ($related_projects = get_field('related_posts')) {?>
 		<h3>Selected Related Projects</h3>
@@ -286,7 +307,7 @@ function consilience_related_projects() {
 			'orderby'		=> 'post__in',
 		));
 		foreach ($related_projects as $related_project) {?>
-			<li><a href="<?php echo get_permalink($related_project->id)?>"><?php echo $related_project->post_title?></a></li>
+			<li><a href="<?php echo get_permalink($related_project->ID)?>"><?php echo $related_project->post_title?></a></li>
 		<?php }?>
 			</ul>
 		</div>
