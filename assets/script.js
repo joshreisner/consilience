@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 
-	//home page carousel
+	/*home page carousel
 	$('#carousel').on('slide.bs.carousel', function(event){
 		var title = $(event.relatedTarget).attr('data-title');
 		
@@ -22,6 +22,19 @@ jQuery(document).ready(function($) {
 	setTimeout(function(){
 		$('#carousel h1 span#reignite').addClass('active');
 	}, 1000);
+	*/
+	
+	if ($('body').hasClass('home')) {
+		setTimeout(function(){
+			$('#carousel h1 span#ignite').addClass('active');
+		}, 750);
+		setTimeout(function(){
+			$('#carousel h1 span#align').addClass('active');
+		}, 1500);
+		setTimeout(function(){
+			$('#carousel h1 span#mobilize').addClass('active');
+		}, 2250);
+	}
 
 	//inside page carousels
 	$('#gallery').on('slide.bs.carousel', function(event){
@@ -41,9 +54,11 @@ jQuery(document).ready(function($) {
 	
 	//projects page isotope
 	$grid = $('.post-type-archive-project .content .row');
-	$grid.isotope({
-		itemSelector: 'a',
-		layoutMode: 'fitRows',
+	$grid.imagesLoaded(function(){
+		$grid.isotope({
+			itemSelector: 'a',
+			layoutMode: 'fitRows',
+		}).addClass('active');
 	});
 
 	$('.post-type-archive-project .side-nav').on('click', 'a', function(){

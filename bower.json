@@ -19,6 +19,7 @@
     "font-awesome": "~4.4.0",
     "bootstrap-sass": "~3.3.5",
     "isotope": "~2.2.2",
-    "jquery-validation": "~1.14.0"
+    "jquery-validation": "~1.14.0",
+    "imagesloaded": "^4.1.0"
   }
 }

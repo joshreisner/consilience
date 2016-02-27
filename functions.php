@@ -243,6 +243,16 @@ function dd($content) {
 	exit;
 }
 
+function consilience_image($attachments) {
+	if ($attachments->exist()) {?>
+		<div id="gallery">
+			<?php echo $attachments->image('large', 0)?>
+			<?php if ($caption = $attachments->field('caption', 0)) {?><div class="caption"><?php echo $caption?></div><?php }?>
+		</div>
+	<?php }
+}
+
+/*
 function consilience_gallery($attachments) {
 	if ($attachments->exist()) {?>
 		<div id="gallery" class="carousel slide" data-ride="carousel">
@@ -273,6 +283,7 @@ function consilience_gallery_controls($attachments) {
 	</div>
 	<?php }
 }
+*/
 
 function consilience_sidebar() {
 	if ($sidebar = get_field('sidebar')) {
@@ -296,7 +307,7 @@ function consilience_side_lower() {
 
 function consilience_related_projects() {
 	if ($related_projects = get_field('related_posts')) {?>
-		<h3>Selected Related Projects</h3>
+		<h3>Related Projects</h3>
 		<div class="block related">
 			<ul>
 		<?php 

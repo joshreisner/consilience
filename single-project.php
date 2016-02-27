@@ -27,13 +27,14 @@ $attachments = new Attachments('attachments', $post->ID);
 				<div class="row">
 					<div class="col-md-8 content">
 						<?php
-						consilience_gallery($attachments);
+						consilience_image($attachments);
+						//consilience_gallery($attachments);
 						the_content();
 						?>
 					</div>
 					<div class="col-md-4 side">
 						<?php
-						consilience_gallery_controls($attachments);
+						//consilience_gallery_controls($attachments);
 						consilience_sidebar();
 						consilience_related_projects();
 						consilience_side_lower();

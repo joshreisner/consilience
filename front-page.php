@@ -13,7 +13,7 @@
 		</div>
 	
 		<h1 id="keywords">
-			<span id="reignite">(re)Ignite.</span>
+			<span id="ignite">Ignite.</span>
 			<span id="align">Align.</span>
 			<span id="mobilize">Mobilize.</span>
 		</h1>
@@ -48,17 +48,18 @@
 		</div>
 	</div>
 	
-	<div class="mission">
+	<div class="mission two">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<h3>Social sector organizations commit to long-term journeys that help transform lives.</h3>
-					<h3>We join them at key points with expertise and short-term bandwidth to accelerate impact.</h3>
+					<h3>We join them at key points to accelerate their impact.</h3>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<!--
 	<div class="news">
 		<div class="headings">
 			<div class="container">
@@ -98,6 +99,7 @@
 			</div>
 		</div>
 	</div>
+	-->
 </main>
 
 <?php get_footer()?>

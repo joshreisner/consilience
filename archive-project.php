@@ -10,7 +10,7 @@ $categories = get_categories();
 		<div class="row">
 			<div class="col-md-12">
 				<div class="page-header">
-					<h1>Projects</h1>
+					<h1>Select Projects</h1>
 				</div>
 			</div>
 		</div>
@@ -42,12 +42,8 @@ $categories = get_categories();
 						$attachments = new Attachments('attachments', $project->ID);
 						?>
 						<a class="col-sm-6 col-md-4 <?php echo implode(' ', $categories)?>" href="<?php echo get_permalink($project->ID)?>">
-							<h4><?php echo $project->post_title?></h4>
-							<div class="image"<?php 
-							if ($attachment = $attachments->get_single(0)) {?>
-								 style="background-image: url(<?php echo $attachments->src('medium', 0)?>);"
-							<?php }?>></div>
-							<div class="question"><?php echo $custom['question'][0]?></div>
+							<?php if ($attachments->exist()) echo $attachments->image('medium', 0)?>
+							<?php echo $project->post_title?>
 						</a>
 					<?php }?>
 				</div>

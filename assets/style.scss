@@ -20,6 +20,16 @@ $margin: 20px;
 	        box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5);
 }
 
+@mixin fadeIn($duration) {
+	opacity: 0;
+	-webkit-transition: opacity #{$duration}s ease;
+	-moz-transition: opacity #{$duration}s ease;
+	-ms-transition: opacity #{$duration}s ease;
+	-o-transition: opacity #{$duration}s ease;
+	transition: opacity #{$duration}s ease;
+	&.active { opacity: 1; }
+}
+
 body {
 	
 	background-color: $gray-dark;
@@ -187,6 +197,17 @@ body {
 		.content {
 			#gallery {
 				margin-bottom: $margin;
+				img {
+					display: block;
+					width: 100%;
+					height: auto;
+				}
+				.caption {
+					text-align: right;
+					font-size: 12px;
+					font-style: italic;
+				}
+				/*
 				.item {
 					height: 340px;
 					overflow: hidden;
@@ -203,6 +224,7 @@ body {
 						font-style: italic;
 					}
 				}
+				*/
 			}
 			.lead {
 				font-size: 21px;
@@ -210,12 +232,16 @@ body {
 			}
 			h2, h3, h4, .h2, .h3, .h4 {
 				color: #999;
-				font-weight: bold;
 				p { margin: 0; }
 			}
-			h2, .h2 { font-size: 26px; }
-			h3, .h3 { font-size: 21px; }
-			h4, .h4 { font-size: 17px; }
+			h2, .h2 { font-size: 26px; font-weight: bold; }
+			h3, .h3 { font-size: 21px; font-weight: bold; }
+			h4, .h4 { font-size: 18px; font-weight: normal; }
+			img.method {
+				background: #fafafa;
+				padding-bottom: 20px;
+				border-bottom: 1px solid #ccc;
+			}
 		}
 
 		.side {
@@ -256,7 +282,21 @@ body {
 			}
 
 			ul {
-				padding-left: $margin;
+				list-style: none;
+				padding-left: 0;
+				li {
+					padding-left: $margin;
+					margin-bottom: 3px;
+					position: relative;
+					&:before { 
+						position: absolute;
+						left: 0;
+						content: "■";
+						color: #ccc;
+						font-size: 11px;
+						line-height: 18px;
+					}
+				}
 			}
 			
 		}
@@ -304,7 +344,7 @@ body {
 			.item {
 				height: 450px;
 				background-size: cover;
-				background-position: center center;
+				background-position: center top;
 				background-repeat: no-repeat;
 			}
 			h1#keywords {
@@ -322,14 +362,8 @@ body {
 				font-size: 70px;
 				font-weight: 100;
 				span {
-					opacity: 0;
-					-webkit-transition: opacity 1s ease;
-					-moz-transition: opacity 1s ease;
-					-ms-transition: opacity 1s ease;
-					-o-transition: opacity 1s ease;
-					transition: opacity 1s ease;
+					@include fadeIn(1);
 					& + span { margin-left: $margin * 2; }
-					&.active { opacity: 1; }
 				}
 			}
 		}
@@ -344,6 +378,10 @@ body {
 				font-size: 27px;
 				font-weight: 100;
 				text-align: center; 
+			}
+			&.two {
+				background-color: #ccc;
+				color: #222;
 			}
 		}
 		
@@ -482,31 +520,23 @@ body {
 	
 	//projects page
 	&.post-type-archive-project {
-		.row.projects {
-			.content {
-				a {
-					color: inherit;
-					margin-bottom: 20px;
-					font-size: 15px;
-					h4 {
-						margin-top: 0;
-						height: 50px;
-						overflow: hidden;
-					}
-					div.image {
-						height: 200px;
-						background-size: contain;
-						background-repeat: no-repeat;
-						background-position: center center;
-						margin-bottom: 4px;
-					}
-					div.question {
-						height: 100px;
-						overflow: hidden;
-					}
-					&:hover {
-						text-decoration: none;
-					}
+		.content {
+			> .row {
+				opacity: 0;
+				&.active { opacity: 1; }
+			}
+			a {
+				color: inherit;
+				margin-bottom: 80px;
+				font-size: 18px;
+				img {
+					display: block; 
+					margin-bottom: 6px;
+					width: 100%;
+					height: auto;
+				}
+				&:hover {
+					text-decoration: none;
 				}
 			}
 		}

@@ -39,6 +39,7 @@ gulp.task('js', function(){
 			'./bower_components/jquery-validation/dist/jquery.validate.min.js', 
 			'./bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
 			'./bower_components/isotope/dist/isotope.pkgd.min.js',
+			'./bower_components/imagesloaded/imagesloaded.pkgd.min.js',
 			'./assets/script.js'
 		])
 		.pipe(concat('script.js'))
