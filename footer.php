@@ -10,7 +10,7 @@
 						Memphis, TN 38103
 					</div>
 					<div class="col-md-3 social">
-						<a class="fa fa-facebook-square"></a>
+						<a class="fa fa-facebook-square" href="https://www.facebook.com/consiliencegroupmemphis/" target="_blank"></a>
 						<!--<a class="fa fa-twitter-square"></a>
 						<a class="fa fa-linkedin-square"></a>-->
 					</div>
