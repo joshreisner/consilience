@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title><?php echo get_bloginfo('name')?></title>
         <meta name="description" content="<?php bloginfo('description'); ?>">
+        <meta name="robots" content="NOODP">
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.png">
 		<?php wp_head()?>
 		<!--[if lt IE 9]>

@@ -11,11 +11,11 @@
 					</div>
 					<div class="col-md-3 social">
 						<a class="fa fa-facebook-square" href="https://www.facebook.com/consiliencegroupmemphis/" target="_blank"></a>
-						<!--<a class="fa fa-twitter-square"></a>
-						<a class="fa fa-linkedin-square"></a>-->
+						<!--<a class="fa fa-twitter-square"></a>-->
+						<a class="fa fa-linkedin-square" href="https://www.linkedin.com/company/consilience-group" target="_blank"></a>
 					</div>
 					<div class="col-md-3">
-						<div>voice <a href="tel:9012788011">(901) 278-8011</a></div>
+						<div>voice <a href="tel:9012718011">(901) 271-8011</a></div>
 						<div>fax <a href="tel:9013281537">(901) 328-1537</a></div>
 					</div>
 				</div>
