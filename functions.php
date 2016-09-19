@@ -216,7 +216,7 @@ function deliver_mail() {
 		// sanitize form values
 		$name		= sanitize_text_field($_POST['name']);
 		$email		= sanitize_email($_POST['email']);
-		$message	= nl2br(stripslashes($_POST['message']));
+		$message	= stripslashes($_POST['message']);
 		$to			= get_option('admin_email');
 		$headers	= 'From: ' . $name . ' <' . $email . '>' . "\r\n";
 
