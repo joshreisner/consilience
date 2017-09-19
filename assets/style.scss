@@ -2,9 +2,16 @@ $icon-font-path: '/wp-content/themes/consilience/assets/fonts/';
 
 $red: #ea2626; //df222c;
 $red-variation: #c22;
+$purple-dark: #57597B;
+$purple-medium: #697FA4; //looks more like gray-blue to me
+$purple-light: #9EB9D5; //looks more like gray-blue to me
+
 $gray-lightish: #ccc;
 $gray-dark: #222;
 $white: #fff;
+
+$font-serif: 'Lora', serif;
+$font-sans: 'Montserrat', sans-serif;
 
 $brand-danger: $red-variation;
 
@@ -35,14 +42,19 @@ body {
 	background-color: $gray-dark;
 	color: $gray-light;
 	font-size: 15px;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-family: $font-serif; 
 	font-weight: 300;
+
+	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+		font-family: $font-sans;
+		font-weight: 800;
+	}
 	
 	//global tags
 	a { 
-		color: $red-variation; 
+		color: $purple-medium; 
 		cursor: pointer;
-		&:hover, &:focus { color: $red-variation; }
+		&:hover, &:focus { color: $purple-dark; }
 	}
 
 	blockquote {
@@ -88,7 +100,7 @@ body {
 	header, footer { padding: $margin 0; }
 	
 	header {
-		background-color: $red;
+		background-color: $purple-dark;
 		a.logo {
 			text-indent: 100%;
 			white-space: nowrap;
@@ -105,8 +117,9 @@ body {
 	}
 	
 	nav {
-		background-color: $red-variation;
-		font-weight: normal;
+		background-color: $purple-medium;
+		font-weight: 500;
+		font-family: $font-sans;
 		.navbar {
 			border: 0;
 			margin-bottom: 0;
@@ -115,21 +128,21 @@ body {
 				span { border-top: 1px solid $gray-lightish; }
 			}
 			a { 
-				color: #522; //$gray-lightish; 
+				color: #fff; //$gray-lightish; 
 				padding-left: $margin;
 				padding-right: $margin;
 				&:hover, &:focus { 
-					background-color: $red; 
+					background-color: $purple-dark; 
 					color: $white;
 				}
 			}
 			li.current-menu-item > a, li.dropdown.open > a, li.current-menu-ancestor > a, li.active > a { 
-				background-color: $red; 
+				background-color: $purple-dark; 
 				color: $white;
-				&:hover, &:focus { background-color: $red; }
+				&:hover, &:focus { background-color: $purple-dark; }
 			}
 			ul.dropdown-menu, li.open ul.dropdown-menu {
-				background-color: $red;
+				background-color: $purple-dark;
 				box-shadow: none;
 				border: 0;
 				a {
@@ -157,6 +170,7 @@ body {
 		}
 		
 		.side-nav {
+			font-family: $font-sans;
 			strong {
 				padding: 10px 15px;
 				display: block;
@@ -228,7 +242,8 @@ body {
 			}
 			.lead {
 				font-size: 21px;
-				color: #aaa;
+				font-weight: 800;
+				font-family: $font-sans;
 			}
 			h2, h3, h4, .h2, .h3, .h4 {
 				color: #999;
@@ -303,6 +318,7 @@ body {
 	}	
 
 	footer {
+		font-family: $font-sans;
 		a {
 			color: inherit; 
 			&:hover {
@@ -353,7 +369,7 @@ body {
 				position: absolute;
 				width: 100%;
 				top: 50%;
-				text-shadow: 2px 2px black;
+				//text-shadow: 2px 2px black;
 				text-align: center;
 				margin: 0;
 				height: 0;
@@ -375,7 +391,8 @@ body {
 			div { margin-bottom: 0; }
 			h3 {
 				margin: 10px 0 15px;
-				font-size: 27px;
+				font-size: 25px;
+				font-family: $font-serif;
 				font-weight: 100;
 				text-align: center; 
 			}
@@ -412,7 +429,8 @@ body {
 						h4 {
 							padding: 4px 10px;
 							background-color: rgba(0, 0, 0, .4);
-							display: inline; 	
+							display: inline;
+							font-weight: 400;
 						}
 						&:hover {
 							background-color: rgba(0, 0, 0, 0);
