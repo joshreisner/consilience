@@ -6,8 +6,8 @@
 						&copy; <?php echo date('Y')?>
 					</div>
 					<div class="col-md-3">
-						580 Monteigne Blvd.<br>
-						Memphis, TN 38103
+						2157 Madison Ave<br>
+						Memphis, TN 38104
 					</div>
 					<div class="col-md-3 social">
 						<!--<a class="fa fa-facebook-square" href="https://www.facebook.com/consiliencegroupmemphis/" target="_blank"></a>
@@ -15,8 +15,8 @@
 						<a class="fa fa-linkedin-square" href="https://www.linkedin.com/company/consilience-group" target="_blank"></a>
 					</div>
 					<div class="col-md-3">
-						<div>voice <a href="tel:9012718011">(901) 271-8011</a></div>
-						<div>fax <a href="tel:9013281537">(901) 328-1537</a></div>
+						<div>voice <a href="tel:9018783378">(901) 878-3378</a></div>
+						<div>fax <a href="tel:9014163078">(901) 416-3078</a></div>
 					</div>
 				</div>
 			</div>
