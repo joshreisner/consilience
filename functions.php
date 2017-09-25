@@ -2,9 +2,9 @@
 
 # Add script and style
 add_action('wp_enqueue_scripts', function(){
-	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:400,700');
-	wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/style.css');
-	wp_enqueue_script('script-name', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), false, true);
+	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700|Montserrat:200,400,700');
+	wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/style.css', array('google-fonts'), filemtime(__DIR__ . '/assets/css/style.css'));
+	wp_enqueue_script('script-name', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), filemtime(__DIR__ . '/assets/js/script.js'), true);
 });
 
 # Custom style

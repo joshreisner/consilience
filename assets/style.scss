@@ -1,7 +1,5 @@
 $icon-font-path: '/wp-content/themes/consilience/assets/fonts/';
 
-$red: #ea2626; //df222c;
-$red-variation: #c22;
 $purple-dark: #57597B;
 $purple-medium: #697FA4; //looks more like gray-blue to me
 $purple-light: #9EB9D5; //looks more like gray-blue to me
@@ -13,7 +11,7 @@ $white: #fff;
 $font-serif: 'Lora', serif;
 $font-sans: 'Montserrat', sans-serif;
 
-$brand-danger: $red-variation;
+$brand-danger: #c22;
 
 //$container-large-desktop: 970px;
 $margin: 20px;
@@ -39,7 +37,7 @@ $margin: 20px;
 
 body {
 	
-	background-color: $gray-dark;
+	//background-color: $gray-dark;
 	color: $gray-light;
 	font-size: 15px;
 	font-family: $font-serif; 
@@ -74,12 +72,11 @@ body {
 			border-radius: 0;
 		}
 		.btn-primary {
-			background-color: $red-variation;
-			border-color: $red-variation;
+			background-color: $purple-dark;
+			border-color: $purple-dark;
 			&:hover, &:active, &:focus, &:focus:active {
 				outline: 0;
-				background-color: $red;
-				border-color: $red;
+				background-color: $purple-medium;
 			}
 		}
 		textarea.form-control { height: 200px; }
@@ -100,7 +97,7 @@ body {
 	header, footer { padding: $margin 0; }
 	
 	header {
-		background-color: $purple-dark;
+		//background-color: $purple-dark;
 		a.logo {
 			text-indent: 100%;
 			white-space: nowrap;
@@ -108,7 +105,7 @@ body {
 			//458 x 126
 			width: 229px;
 			height: 63px;
-			background-image: url(../img/logo-white.svg);
+			background-image: url(../img/logo-purple.svg);
 			background-size: contain;
 			background-repeat: no-repeat;
 			max-width: 100%;
@@ -117,7 +114,7 @@ body {
 	}
 	
 	nav {
-		background-color: $purple-medium;
+		background-color: $purple-dark;
 		font-weight: 500;
 		font-family: $font-sans;
 		.navbar {
@@ -128,26 +125,26 @@ body {
 				span { border-top: 1px solid $gray-lightish; }
 			}
 			a { 
-				color: #fff; //$gray-lightish; 
+				color: $white; //$gray-lightish; 
 				padding-left: $margin;
 				padding-right: $margin;
 				&:hover, &:focus { 
-					background-color: $purple-dark; 
-					color: $white;
+					background-color: $white; 
+					color: $purple-dark;
 				}
 			}
 			li.current-menu-item > a, li.dropdown.open > a, li.current-menu-ancestor > a, li.active > a { 
-				background-color: $purple-dark; 
-				color: $white;
-				&:hover, &:focus { background-color: $purple-dark; }
+				background-color: $white; 
+				color: $purple-dark;
+				&:hover, &:focus { background-color: $white; }
 			}
 			ul.dropdown-menu, li.open ul.dropdown-menu {
-				background-color: $purple-dark;
+				background-color: $white;
 				box-shadow: none;
 				border: 0;
 				a {
 					margin-right: 0;
-					color: $white;
+					color: $purple-dark;
 					&:hover { text-decoration: underline; }
 				}
 			}
@@ -244,9 +241,11 @@ body {
 				font-size: 21px;
 				font-weight: 800;
 				font-family: $font-sans;
+				color: $purple-dark;
+				span { color: $purple-dark !important; }
 			}
 			h2, h3, h4, .h2, .h3, .h4 {
-				color: #999;
+				color: $purple-dark;
 				p { margin: 0; }
 			}
 			h2, .h2 { font-size: 26px; font-weight: bold; }
@@ -288,7 +287,7 @@ body {
 				}
 				& > div {
 					margin-bottom: 0;
-					&.active .thumbnail { border-color: $red; }
+					&.active .thumbnail { border-color: $purple-dark; }
 				}
 			}
 	
@@ -319,11 +318,12 @@ body {
 
 	footer {
 		font-family: $font-sans;
+		color: $purple-dark;
 		a {
 			color: inherit; 
 			&:hover {
 				text-decoration: none;
-				color: #ccc;
+				color: $purple-dark;
 			}
 		}
 		.row > div { 
@@ -334,11 +334,11 @@ body {
 				padding-top: 120px;
 				&:before {
 					content: "";
-					background-image: url(../img/logo-tree.svg); 
+					background-image: url(../img/logo-tree-purple.svg); 
 					background-size: contain;
 					background-position: center center;
 					background-repeat: no-repeat;
-					opacity: .5;
+					opacity: 1;
 					width: 100px;
 					height: 100px;
 					position: absolute;
@@ -376,7 +376,7 @@ body {
 				line-height: 0;
 				overflow: visible;
 				font-size: 70px;
-				font-weight: 100;
+				font-weight: 500;
 				span {
 					@include fadeIn(1);
 					& + span { margin-left: $margin * 2; }
@@ -385,20 +385,16 @@ body {
 		}
 		
 		.mission {
-			background-color: #333;
+			background-color: $purple-dark;
 			color: $white;
 			padding: $margin;
 			div { margin-bottom: 0; }
 			h3 {
 				margin: 10px 0 15px;
-				font-size: 25px;
-				font-family: $font-serif;
-				font-weight: 100;
+				font-size: 24px;
+				font-family: $font-sans;
+				font-weight: 200;
 				text-align: center; 
-			}
-			&.two {
-				background-color: #ccc;
-				color: #222;
 			}
 		}
 		
@@ -443,14 +439,14 @@ body {
 
 		.news {
 			margin-top: 15px;
-			strong { color: $red; font-weight: bold; }
+			strong { color: $purple-dark; font-weight: bold; }
 			.headings {
 				border-bottom: 1px solid $gray-lighter;
 				padding: $margin 0 0;
 				margin-bottom: $margin;
 				font-size: 29px;
 				font-weight: 100;
-				color: $red;
+				color: $purple-dark;
 			}
 			.stories {
 				min-height: 270px;
