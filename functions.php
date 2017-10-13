@@ -357,3 +357,23 @@ function consilience_side_nav() {
 	    'echo' => false,
 	));	
 }
+
+add_shortcode('method', function(){
+	return '<div id="method">
+		<div class="column">
+			<h2>Ignite</h2>
+			<strong>&hellip; stakeholders for shared vision.</strong>
+			<p>Engage stakeholders to focus their intrinsic purpose and passion on clear goals.</p>
+		</div>
+		<div class="column">
+			<h2>Align</h2>
+			<strong>&hellip; stakeholders for shared roadmap.</strong>
+			<p>Facilitate decisionmaking based on data and diverse integrated perspectives.</p>
+		</div>
+		<div class="column">
+			<h2>Mobilize</h2>
+			<strong>&hellip; stakeholders for collaborative action.</strong>
+			<p>Provide design, project management, and technical assistance to launch execution.</p>
+		</div>
+	</div>';
+});

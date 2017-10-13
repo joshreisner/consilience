@@ -22,7 +22,7 @@ $margin: 20px;
 @mixin shadowed() {
 	-webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5);
 	   -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5);
-	        box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5);
+			box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5);
 }
 
 @mixin fadeIn($duration) {
@@ -85,12 +85,12 @@ body {
 	//helpers
 	.alignleft { 
 		float: left; margin: 0 $margin $margin 0; 
-	    @include shadowed();					
+		@include shadowed();					
 	}
 	
 	.alignright { 
 		float: left; margin: 0 0 $margin $margin; 
-	    @include shadowed();					
+		@include shadowed();					
 	}
 	
 	//template
@@ -241,8 +241,6 @@ body {
 				font-size: 21px;
 				font-weight: 800;
 				font-family: $font-sans;
-				color: $purple-dark;
-				span { color: $purple-dark !important; }
 			}
 			h2, h3, h4, .h2, .h3, .h4 {
 				color: $purple-dark;
@@ -251,11 +249,59 @@ body {
 			h2, .h2 { font-size: 26px; font-weight: bold; }
 			h3, .h3 { font-size: 21px; font-weight: bold; }
 			h4, .h4 { font-size: 18px; font-weight: normal; }
+
+			/*
 			img.method {
 				background: #fafafa;
 				padding-bottom: 20px;
 				border-bottom: 1px solid #ccc;
 			}
+			*/
+
+			#method {
+				.column {
+					width: 33.33334%;
+					float: left;
+					position: relative;
+
+					h2 {
+						background-color: $purple-dark;
+						color: white;
+						font-weight: 200;
+						text-align: center;
+						padding: 10px 5px;
+						font-size: 33px;
+						margin-top: 0;
+					}
+
+					& + .column {
+						h2:after {
+							content: "";
+							border: 5px solid white;
+							border-width: 5px 5px 0 0;
+							width: 45px;
+							height: 45px;
+							transform: rotate(45deg);
+							position: absolute;
+							top: 5px;
+							left: -45px;
+						}
+					}
+				
+					strong, p {
+						display: block;
+						font-family: $font-sans;
+						padding: 5px 10px;
+						font-style: italic;
+					}
+
+					p {
+						font-weight: 500;
+					}
+				}
+			}
+
+
 		}
 
 		.side {
@@ -460,11 +506,11 @@ body {
 				img { margin-bottom: $margin; }
 				p.excerpt {
 					img { 
-					    float: left;
-					    width: 90px;
-					    height: auto;
-					    margin: 4px 14px 10px 0;
-					    @include shadowed();
+						float: left;
+						width: 90px;
+						height: auto;
+						margin: 4px 14px 10px 0;
+						@include shadowed();
 					}
 				}
 			}
@@ -631,8 +677,8 @@ body {
 
 /*
   Bootstrap Carousel Fade Transition (for Bootstrap 3.3.x)
-  CSS from:       http://codepen.io/transportedman/pen/NPWRGq
-  and:            http://stackoverflow.com/questions/18548731/bootstrap-3-carousel-fading-to-new-slide-instead-of-sliding-to-new-slide
+  CSS from:	   http://codepen.io/transportedman/pen/NPWRGq
+  and:			http://stackoverflow.com/questions/18548731/bootstrap-3-carousel-fading-to-new-slide-instead-of-sliding-to-new-slide
   Inspired from:  http://codepen.io/Rowno/pen/Afykb 
 */
 .carousel-fade .carousel-inner .item {
@@ -665,23 +711,23 @@ body {
   Need to override the 3.3 new styles for modern browsers & apply opacity
 */
 @media all and (transform-3d), (-webkit-transform-3d) {
-    .carousel-fade .carousel-inner > .item.next,
-    .carousel-fade .carousel-inner > .item.active.right {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0);
-    }
-    .carousel-fade .carousel-inner > .item.prev,
-    .carousel-fade .carousel-inner > .item.active.left {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0);
-    }
-    .carousel-fade .carousel-inner > .item.next.left,
-    .carousel-fade .carousel-inner > .item.prev.right,
-    .carousel-fade .carousel-inner > .item.active {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0);
-    }
+	.carousel-fade .carousel-inner > .item.next,
+	.carousel-fade .carousel-inner > .item.active.right {
+	  opacity: 0;
+	  -webkit-transform: translate3d(0, 0, 0);
+			  transform: translate3d(0, 0, 0);
+	}
+	.carousel-fade .carousel-inner > .item.prev,
+	.carousel-fade .carousel-inner > .item.active.left {
+	  opacity: 0;
+	  -webkit-transform: translate3d(0, 0, 0);
+			  transform: translate3d(0, 0, 0);
+	}
+	.carousel-fade .carousel-inner > .item.next.left,
+	.carousel-fade .carousel-inner > .item.prev.right,
+	.carousel-fade .carousel-inner > .item.active {
+	  opacity: 1;
+	  -webkit-transform: translate3d(0, 0, 0);
+			  transform: translate3d(0, 0, 0);
+	}
 }
