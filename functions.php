@@ -18,6 +18,12 @@ add_filter('the_content_more_link', function() {
 	return '<a class="btn btn-default" href="' . get_permalink() . '">Read more</a>';
 });
 
+//add options page for blurbs
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page();
+}
+
+
 # Init: register menus, custom objects, and taxonomies
 add_action('init', function(){
 	

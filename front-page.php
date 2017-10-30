@@ -25,7 +25,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3><?php echo get_bloginfo('description')?></h3>
+					<h3><?php echo the_field('home_tagline_1', 'options')?></h3>
 				</div>
 			</div>
 		</div>
@@ -52,8 +52,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Social sector organizations commit to long-term journeys that help transform lives.</h3>
-					<h3>We join them at key points to accelerate their impact.</h3>
+					<?php
+					$tagline2 = explode("\n", get_field('home_tagline_2', 'options'));
+					foreach ($tagline2 as $tagline) {?>
+						<h3><?php echo $tagline?></h3>
+					<?php }?>
 				</div>
 			</div>
 		</div>
