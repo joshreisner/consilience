@@ -13,9 +13,9 @@
 		</div>
 	
 		<h1 id="keywords">
-			<span id="ignite">Ignite.</span>
-			<span id="align">Align.</span>
-			<span id="mobilize">Mobilize.</span>
+			<span id="ignite">IGNITE.</span>
+			<span id="align">ALIGN.</span>
+			<span id="mobilize">MOBILIZE.</span>
 		</h1>
 	
 	</div>

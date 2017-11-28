@@ -415,14 +415,13 @@ body {
 				position: absolute;
 				width: 100%;
 				top: 50%;
-				//text-shadow: 2px 2px black;
 				text-align: center;
 				margin: 0;
 				height: 0;
 				line-height: 0;
 				overflow: visible;
 				font-size: 70px;
-				font-weight: 500;
+				font-weight: 600;
 				span {
 					@include fadeIn(1);
 					& + span { margin-left: $margin * 2; }
@@ -448,7 +447,7 @@ body {
 			text-align: center;
 			background-color: $gray;
 			.inner {
-				background-image: url(../img/people-background.jpg);
+				background-image: url(../img/people-background-purple.jpg);
 				background-size: cover;
 				background-repeat: no-repeat;				
 			}
